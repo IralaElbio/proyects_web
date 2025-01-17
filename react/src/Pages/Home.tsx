@@ -1,47 +1,61 @@
-import React from 'react'
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import React from "react";
+import { Stack, CardContent, CardActions } from "@mui/material";
+import {
+  Container,
+  Title,
+  StyledCard,
+  StyledCardMedia,
+  StyledCardTitle,
+  StyledCardDescription,
+  StyledButton,
+} from "../styles/HomeStyles";
+import proyectImage from "../assets/image_proyect.jpg";
 
-import { Box } from '@mui/material'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CardActionArea from '@mui/material/CardActionArea';
 function Home() {
-    return (
-        <Box sx={{ backgroundColor: 'yellow' }}>
-            <Typography variant="h2" gutterBottom >
-                Proyects
-            </Typography>
-            <Stack direction={'row'} spacing={1}>
-                <Card>
-                    <CardMedia />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
-                        </Typography>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardMedia />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Perro
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Stack>
+  return (
+    <Container>
+      <Title variant="h3" gutterBottom>
+        Projects
+      </Title>
+      <Stack spacing={1}>
+        <StyledCard>
+          <StyledCardMedia image={proyectImage} />
+          <CardContent>
+            <StyledCardTitle gutterBottom variant="h5">
+              Project 1
+            </StyledCardTitle>
+            <StyledCardDescription variant="body2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              ea laborum dolore sapiente fugiat beatae, soluta, libero
+              recusandae quo repellat culpa. Perferendis minima laboriosam atque
+              dolores.
+            </StyledCardDescription>
+          </CardContent>
+          <CardActions>
+            <StyledButton size="small">Learn More</StyledButton>
+          </CardActions>
+        </StyledCard>
 
-        </Box>
-    )
+        <StyledCard>
+          <StyledCardMedia image={proyectImage} />
+          <CardContent>
+            <StyledCardTitle gutterBottom variant="h5">
+              Project 2
+            </StyledCardTitle>
+            <StyledCardDescription variant="body2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              ea laborum dolore sapiente fugiat beatae, soluta, libero
+              recusandae quo repellat culpa. Perferendis minima laboriosam atque
+              dolores.
+            </StyledCardDescription>
+          </CardContent>
+          <CardActions>
+            <StyledButton size="small">Learn More</StyledButton>
+          </CardActions>
+        </StyledCard>
+      </Stack>
+    </Container>
+  );
 }
 
-export default Home
+export default Home;

@@ -1,7 +1,8 @@
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainBarr from './Components/MainBarr'
-import Home from './Pages/Home';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainBarr from "./Components/MainBarr";
+import Home from "./Pages/Home";
+import DuckGame from "./Pages/duckgame";
 
 function App() {
   return (
@@ -10,12 +11,11 @@ function App() {
         <MainBarr />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<div> "test page"</div>} />
+          <Route path="/duckgame" element={<DuckGame />} />
         </Routes>
       </Router>
-
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
