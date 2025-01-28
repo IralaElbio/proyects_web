@@ -13,11 +13,7 @@ const Container = styled(Box)(({ theme }) => ({
 }));
 
 const lobbyDescription = `
-  Los clientes pueden crear o unirse a salas (Lobbies), las cuales son administradas por el GameManager. 
-  Este componente principal coordina las operaciones críticas del servidor, como la creación y eliminación 
-  de lobbies, asegurando la sincronización adecuada entre los clientes. Una vez que un lobby está completo y 
-  todos los clientes están listos, el servidor procede a crear una instancia de juego y eliminar el lobby, 
-  preparando a los jugadores para iniciar el juego.
+    En esta parte del juego, los jugadores se agrupan en Lobbies antes de comenzar la partida. Los jugadores pueden crear un nuevo lobby o unirse a uno existente, y una vez que todos los jugadores están listos, el sistema, a través de la clase GameManager, coordina la creación del juego y el cierre del lobby. El ClientManager gestiona la conexión y comunicación con cada cliente, asegurando que no haya conflictos de acceso a lobbies que ya estén llenos o cerrados. Cuando la partida termina, los lobbies se eliminan de manera eficiente, permitiendo que el flujo de jugadores sea continuo y organizado.
 `;
 
 const challengesAndSolutions = [

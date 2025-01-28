@@ -4,6 +4,7 @@ import { Box, Typography, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ProyectOverview from "./Components/ProjectOverview"
 import ProyectLobbyInfo from "./Components/ProyectLobbyInfo";
+import ProyectGameInfo from "./Components/ProyectGameInfo";
 
 // Background image styling
 const BackgroundContainer = styled(Box)(({ theme }) => ({
@@ -51,24 +52,28 @@ const DuckGamePage = () => {
 
         {/* Information Section */}
         <InfoSection>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             Project Details
           </Typography>
 
           {/* Lobby Logic Section */}
+          <Typography variant="h5" gutterBottom>
+            Pre-Game Logic
+          </Typography>
           <SubSection>
             <ProyectLobbyInfo />
           </SubSection>
 
           {/* Game Logic Section */}
+          <Typography variant="h5" gutterBottom>
+            In-Game Logic
+          </Typography>
+
           <SubSection>
-            <Typography variant="h6" gutterBottom>
-              Game Logic
-            </Typography>
-            <Typography variant="body1">
-              Description of the game logic, including mechanics and key features.
-            </Typography>
+            <ProyectGameInfo></ProyectGameInfo>
           </SubSection>
+
+
         </InfoSection>
       </MainContainer>
     </BackgroundContainer>

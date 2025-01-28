@@ -21,7 +21,9 @@ function ProjectOverview() {
                     Project Overview
                 </Typography>
                 <Typography variant="body1">
-                    Full backend development for a real-time multiplayer game, implementing a multithreaded architecture with physics systems, collision detection, and game state management.
+                    Full backend development for a real-time multiplayer game,
+                    implementing a multithreaded architecture with physics systems,
+                    collision detection, and game state management.
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap" mt={2}>
                     {technologies.map((tech) => (
