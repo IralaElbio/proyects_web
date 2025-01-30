@@ -9,7 +9,7 @@ interface TitleAndDescriptionProps {
 const TitleAndDescription: React.FC<TitleAndDescriptionProps> = ({ title, description }) => {
     return (
         <Box>
-            <Typography variant="h6" sx={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 {title}
             </Typography>
             <Typography variant="body1">{description}</Typography>

@@ -19,9 +19,9 @@ const AccordionListWithHeader: React.FC<AccordionListWithHeaderProps> = ({ title
                 {title}
             </Typography>
             {data.map((item, index) => (
-                <Accordion key={index}>
+                <Accordion key={index} sx={{ backgroundColor: "transparent", color: "white" }}>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
                         aria-controls={`panel${index}-content`}
                         id={`panel${index}-header`}
                     >

@@ -15,7 +15,7 @@ const ChallengesAndSolutions: React.FC<ChallengesAndSolutionsProps> = ({ data })
     return (
         <Box>
             {data.map((item, index) => (
-                <Box key={index} mb={3}>
+                <Box key={index} mb={1}>
                     <Typography variant="body1" fontWeight="bold">
                         {item.title}
                     </Typography>

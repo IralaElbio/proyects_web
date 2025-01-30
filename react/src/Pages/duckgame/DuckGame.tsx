@@ -8,7 +8,7 @@ import ProyectGameInfo from "./Components/ProyectGameInfo";
 
 // Background image styling
 const BackgroundContainer = styled(Box)(({ theme }) => ({
-  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${backgroundImage})`,
+  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundAttachment: "fixed", // Hace que el fondo no se mueva al hacer scroll
@@ -34,7 +34,7 @@ const SubSection = styled(Box)(({ theme }) => ({
 
 const MainContainer = styled(Container)(({ theme }) => ({
   padding: theme.spacing(4, 4),
-  background: "Black",
+  background: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))",
   [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(4, 2),
   },
@@ -46,18 +46,19 @@ const DuckGamePage = () => {
       <MainContainer>
         {/* Title Section */}
         <ProjectTitle variant="h2">DuckGame Proyect - Back End</ProjectTitle>
+        <ProjectTitle variant="h4" gutterBottom> Multiplayer Game Engine Development</ProjectTitle>
 
         <ProyectOverview />
 
 
         {/* Information Section */}
         <InfoSection>
-          <Typography variant="h3" gutterBottom>
+          <ProjectTitle variant="h4" gutterBottom>
             Project Details
-          </Typography>
+          </ProjectTitle>
 
           {/* Lobby Logic Section */}
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', textDecoration: 'underline' }}>
             Pre-Game Logic
           </Typography>
           <SubSection>
@@ -65,7 +66,7 @@ const DuckGamePage = () => {
           </SubSection>
 
           {/* Game Logic Section */}
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', textDecoration: 'underline' }}>
             In-Game Logic
           </Typography>
 
