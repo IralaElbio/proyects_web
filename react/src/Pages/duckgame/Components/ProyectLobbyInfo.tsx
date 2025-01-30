@@ -1,19 +1,24 @@
 import React from 'react';
-import { Box, Typography, Stack, styled } from '@mui/material';
+import { Box, Typography, Stack, styled, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ChallengesAndSolutions from './ChallengesAndSolutions';
 import AccordionListWithHeader from './AccordionList';
 import TitleAndDescription from './TitleAndDescription';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Container = styled(Box)(({ theme }) => ({
-    padding: theme.spacing(4, 4),
-    background: "grey",
-    [theme.breakpoints.down("sm")]: {
-        padding: theme.spacing(4, 2),
-    },
+    margin: 1,
+    background: "transparent",
 }));
 
 const lobbyDescription = `
-    En esta parte del juego, los jugadores se agrupan en Lobbies antes de comenzar la partida. Los jugadores pueden crear un nuevo lobby o unirse a uno existente, y una vez que todos los jugadores están listos, el sistema, a través de la clase GameManager, coordina la creación del juego y el cierre del lobby. El ClientManager gestiona la conexión y comunicación con cada cliente, asegurando que no haya conflictos de acceso a lobbies que ya estén llenos o cerrados. Cuando la partida termina, los lobbies se eliminan de manera eficiente, permitiendo que el flujo de jugadores sea continuo y organizado.
+El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, 
+manejando las conexiones individuales de los clientes mediante hilos dedicados. La coordinación central se 
+realiza a través de GameManager, un monitor que gestiona tanto los lobbies de espera como las instancias 
+activas de juego.
+El proceso de unión de jugadores se maneja a través de Lobbies, que actúan como salas de espera donde los 
+jugadores pueden reunirse antes de comenzar una partida. Una vez que un lobby está completo y todos los 
+jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición 
+de los jugadores desde el lobby hacia la partida.
 `;
 
 const challengesAndSolutions = [
@@ -35,7 +40,7 @@ const challengesAndSolutions = [
     {
         title: 'Optimización del uso de recursos',
         challenge: 'Gestionar la creación y eliminación de hilos y recursos para evitar sobrecargar el servidor.',
-        solution: 'Los hilos de ClientManager y las instancias de lobbies y juegos se eliminan de manera controlada una vez que cumplen su propósito (El cliente pasa del Lobby al juego). '
+        solution: 'Los hilos de ClientManager y las instancias de lobbies y juegos se eliminan de manera controlada una vez que cumplen su propósito (El cliente deja el lobby para pasar al juego). '
     }
 ];
 
@@ -56,28 +61,32 @@ const accordionData = [
 ];
 
 const ProyectLobbyInfo = () => {
-    return (
-        <Stack spacing={3}>
-            {/* Summary and UML Diagram */}
-            <Stack direction="row" spacing={2}>
-                <Container>
-                    <TitleAndDescription title="Server - Información del Lobby" description={lobbyDescription} />
-                </Container>
+    return (<>
+        <Accordion sx={{ backgroundColor: "transparent", color: "white" }}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}>
+                <Typography variant="h5" gutterBottom>Lobby</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Stack spacing={3}>
+                    {/* Summary and UML Diagram */}
+                    <Stack direction="row" spacing={2}>
+                        <Container>
+                            <TitleAndDescription title="Overview" description={lobbyDescription} />
+                        </Container>
 
-                <Box width={3000} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
-                    <Typography>Diagrama UML aquí</Typography>
-                </Box>
-            </Stack>
-            <Container>
-                {/* Challenges and Achievements */}
-                <ChallengesAndSolutions data={challengesAndSolutions} />
-            </Container>
-
-            <Container>
-                {/* Additional Information */}
-                <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
-            </Container>
-        </Stack>
+                        <Box width={3000} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
+                            <Typography>Diagrama UML aquí</Typography>
+                        </Box>
+                    </Stack>
+                    <Container>
+                        <Typography variant="h5" gutterBottom>Challanges and Solutions</Typography>
+                        {/* Challenges and Achievements */}
+                        <ChallengesAndSolutions data={challengesAndSolutions} />
+                    </Container>
+                </Stack>
+            </AccordionDetails>
+        </Accordion >
+    </>
     );
 };
 
