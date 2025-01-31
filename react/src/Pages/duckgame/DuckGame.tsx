@@ -2,9 +2,9 @@ import React from "react";
 import backgroundImage from "./Assets/duckgame.jpg";
 import { Box, Typography, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ProyectOverview from "./Components/ProjectOverview"
-import ProyectLobbyInfo from "./Components/ProyectLobbyInfo";
-import ProyectGameInfo from "./Components/ProyectGameInfo";
+import ProyectOverview from "./Components/SectionProjectOverview"
+import Lobby from "./Components/SectionLobby";
+import Game from "./Components/SectionGame";
 
 // Background image styling
 const BackgroundContainer = styled(Box)(({ theme }) => ({
@@ -50,9 +50,9 @@ const DuckGamePage = () => {
 
         <ProyectOverview />
 
-
         {/* Information Section */}
         <InfoSection>
+
           <ProjectTitle variant="h4" gutterBottom>
             Project Details
           </ProjectTitle>
@@ -61,20 +61,18 @@ const DuckGamePage = () => {
           <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', textDecoration: 'underline' }}>
             Pre-Game Logic
           </Typography>
+
           <SubSection>
-            <ProyectLobbyInfo />
+            <Lobby />
           </SubSection>
 
           {/* Game Logic Section */}
           <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', textDecoration: 'underline' }}>
             In-Game Logic
           </Typography>
-
           <SubSection>
-            <ProyectGameInfo></ProyectGameInfo>
+            <Game />
           </SubSection>
-
-
         </InfoSection>
       </MainContainer>
     </BackgroundContainer>

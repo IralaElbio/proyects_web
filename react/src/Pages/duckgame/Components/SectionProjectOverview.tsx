@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Chip, Stack, Box, List, ListItem, ListItemText } from "@mui/material";
+import { Typography, Chip, Stack, Box } from "@mui/material";
 import { Hub } from "@mui/icons-material";
 import MediationIcon from '@mui/icons-material/Mediation';
 import CodeIcon from '@mui/icons-material/Code';

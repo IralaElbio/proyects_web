@@ -1,15 +1,8 @@
-import { Box, Stack, styled, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import React from "react";
-import TitleAndDescription from "./TitleAndDescription";
-import AccordionListWithHeader from "./AccordionList";
-import ChallengesAndSolutions from "./ChallengesAndSolutions";
-
-
-const Container = styled(Box)(({ theme }) => ({
-    margin: 1,
-    background: "transparent",
-}));
-
+import TitleAndDescription from "./CompDescription";
+import AccordionListWithHeader from "./CompAccordionList";
+import ChallengesAndSolutions from "./CompChallenges";
 
 const GameDescription = `
     GameMap gestiona todos los elementos 
@@ -75,26 +68,17 @@ const accordionData = [
 
 
 
-const GameLogic = () => {
+const GameLoopAndMap = () => {
     return (
         <Stack spacing={3}>
-            <Container>
-                <TitleAndDescription title="Overview"
-                    description={GameDescription} />
-            </Container>
+            <TitleAndDescription title="Overview"
+                description={GameDescription} />
 
-            <Container>
-                <Typography variant="h5" gutterBottom>Challanges and Solutions</Typography>
-                <ChallengesAndSolutions data={challengesAndSolutions} />
-            </Container>
+            <ChallengesAndSolutions data={challengesAndSolutions} />
 
-
-            <Container>
-                <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
-            </Container>
-
+            <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
         </Stack>
     );
 };
 
-export default GameLogic;
+export default GameLoopAndMap;

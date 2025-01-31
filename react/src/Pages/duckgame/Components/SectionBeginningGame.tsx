@@ -1,15 +1,8 @@
 import React from "react";
-import { Box, Stack, styled, Typography } from '@mui/material';
-import TitleAndDescription from "./TitleAndDescription";
-import ChallengesAndSolutions from "./ChallengesAndSolutions";
-import AccordionListWithHeader from "./AccordionList";
-
-
-const Container = styled(Box)(({ theme }) => ({
-    margin: 1,
-    marginBottom: 5,
-    background: "transparent",
-}));
+import { Stack } from '@mui/material';
+import TitleAndDescription from "./CompDescription";
+import ChallengesAndSolutions from "./CompChallenges";
+import AccordionListWithHeader from "./CompAccordionList";
 
 const gameInstanceAndPlayersDescription = `
 El sistema implementa un servidor de juego multijugador donde cada partida es manejada por una 
@@ -57,24 +50,16 @@ const accordionData = [
 ];
 
 
-const PlayerGameLogic = () => {
+const BeginningGameSect = () => {
     return (
         <Stack spacing={3}>
-            <Container>
-                <TitleAndDescription title="Overview"
-                    description={gameInstanceAndPlayersDescription} />
-            </Container>
+            <TitleAndDescription title="Overview" description={gameInstanceAndPlayersDescription} />
 
-            <Container>
-                <Typography variant="h5" gutterBottom>Challanges and Solutions</Typography>
-                <ChallengesAndSolutions data={challengesAndSolutions} />
-            </Container>
+            <ChallengesAndSolutions data={challengesAndSolutions} />
 
-            <Container>
-                <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
-            </Container>
+            <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
         </Stack>
     );
 };
 
-export default PlayerGameLogic;
+export default BeginningGameSect;

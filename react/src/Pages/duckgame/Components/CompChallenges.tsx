@@ -14,6 +14,7 @@ interface ChallengesAndSolutionsProps {
 const ChallengesAndSolutions: React.FC<ChallengesAndSolutionsProps> = ({ data }) => {
     return (
         <Box>
+            <Typography variant="h5" gutterBottom>Challanges and Solutions</Typography>
             {data.map((item, index) => (
                 <Box key={index} mb={1}>
                     <Typography variant="body1" fontWeight="bold">

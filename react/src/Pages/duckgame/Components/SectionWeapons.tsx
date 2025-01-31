@@ -1,16 +1,8 @@
-import { Box, Stack, styled } from '@mui/material';
 import React from 'react'
-import ChallengesAndSolutions from './ChallengesAndSolutions';
-import TitleAndDescription from './TitleAndDescription';
-import AccordionListWithHeader from './AccordionList';
-
-
-
-const Container = styled(Box)(({ theme }) => ({
-    margin: 1,
-    background: "transparent",
-}));
-
+import { Stack } from '@mui/material';
+import ChallengesAndSolutions from './CompChallenges';
+import TitleAndDescription from './CompDescription';
+import AccordionListWithHeader from './CompAccordionList';
 
 const WeaponDescription = `
 Para las armas se implementa un diseño modular, utilizando la interfaz IActionableItem 
@@ -69,25 +61,20 @@ const accordionData = [
 
 
 
-function WeaponGameLogic() {
+function Weapons() {
     return (
         <Stack spacing={3}>
-            <Container>
-                <TitleAndDescription title="Overview"
-                    description={WeaponDescription} />
-            </Container>
 
-            <Container>
-                <ChallengesAndSolutions data={challengesAndSolutions} />
-            </Container>
+            <TitleAndDescription title="Overview"
+                description={WeaponDescription} />
+            <ChallengesAndSolutions data={challengesAndSolutions} />
 
-            <Container>
-                <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
-            </Container>
+            <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
+
         </Stack>
     )
 }
 
-export default WeaponGameLogic
+export default Weapons
 
 
