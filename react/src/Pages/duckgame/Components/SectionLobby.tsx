@@ -1,19 +1,8 @@
 import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 import ChallengesAndSolutions from './CompChallenges';
-import TitleAndDescription from './CompDescription';
-import ProjectDetailsSection from './CompProjectDetails';
-
-const lobbyDescription = `
-El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, 
-manejando las conexiones individuales de los clientes mediante hilos dedicados. La coordinación central se 
-realiza a través de GameManager, un monitor que gestiona tanto los lobbies de espera como las instancias 
-activas de juego.
-El proceso de unión de jugadores se maneja a través de Lobbies, que actúan como salas de espera donde los 
-jugadores pueden reunirse antes de comenzar una partida. Una vez que un lobby está completo y todos los 
-jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición 
-de los jugadores desde el lobby hacia la partida.
-`;
+import AccordionWNode from './CAccordion';
+import ParagraphList from './CParagraphList';
 
 const challengesAndSolutions = [
     {
@@ -44,8 +33,21 @@ const content = [{
     content: (
         <Stack spacing={3}>
             <Stack direction="row" spacing={2}>
-                <TitleAndDescription title="Overview" description={lobbyDescription} />
-                <Box width={3000} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
+                <Box>
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                        Overview
+                    </Typography>
+                    <ParagraphList
+                        content={[
+                            "El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, manejando las conexiones individuales de los clientes mediante hilos dedicados.",
+                            "La coordinación central se realiza a través de GameManager, un monitor que gestiona tanto los lobbies de espera como las instancias activas de juego.",
+                            "El proceso de unión de jugadores se maneja a través de Lobbies, que actúan como salas de espera donde los jugadores pueden reunirse antes de comenzar una partida.",
+                            "Una vez que un lobby está completo y todos los jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición de los jugadores desde el lobby hacia la partida."
+                        ]}
+                    />
+                </Box>
+
+                <Box width={1500} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
                     <Typography>Diagrama UML aquí</Typography>
                 </Box>
             </Stack>
@@ -57,7 +59,7 @@ const content = [{
 
 const Lobby = () => {
     return (
-        <ProjectDetailsSection items={content} />
+        <AccordionWNode items={content} titleVariant='h5' />
     );
 };
 

@@ -3,12 +3,30 @@ import { Typography, Chip, Stack, Box } from "@mui/material";
 import { Hub } from "@mui/icons-material";
 import MediationIcon from '@mui/icons-material/Mediation';
 import CodeIcon from '@mui/icons-material/Code';
+import ItemList from "./CItemList";
 
 const technologies = [
     { name: "C++", icon: <CodeIcon /> },
     { name: "Multithreading", icon: <MediationIcon /> },
     { name: "Sockets", icon: <Hub /> },
 ];
+
+const achievements = [
+    "Designed and implemented a multithreaded game loop architecture managing concurrent player actions, physics calculations, and state synchronization.",
+    "Built a custom physics engine with configurable parameters for realistic movement simulation, including friction and gravity effects.",
+    "Developed an advanced weapon system featuring polymorphic interfaces and multiple projectile types, each with unique behavior patterns.",
+    "Implemented a sophisticated collision detection and resolution system using AABB (Axis-Aligned Bounding Box) methodology.",
+    "Created a dynamic game state management system handling real-time updates and maintaining game consistency across multiple players.",
+    "Engineered a modular weapon factory system supporting runtime weapon creation and distribution through spawn points."
+];
+
+const technicalHighlights = [
+    "Utilized design patterns including Strategy Pattern for weapon behaviors and Factory Pattern for dynamic object creation.",
+    "Implemented thread-safe communication protocols between game components ensuring data consistency.",
+    "Developed a comprehensive event system managing game physics, collisions, and player interactions.",
+    "Created an extensible architecture supporting easy addition of new weapons and game mechanics."
+];
+
 function ProjectOverview() {
     return (<>
         <Box sx={{
@@ -51,47 +69,9 @@ function ProjectOverview() {
             </Box>
         </Box>
 
-        <Typography variant="h5" gutterBottom>
-            Key Technical Achievements
-        </Typography>
-        <Box component="ul" sx={{ marginBottom: 3, paddingLeft: 2 }}>
-            <Typography component="li" variant="body1">
-                Designed and implemented a multithreaded game loop architecture managing concurrent player actions, physics calculations, and state synchronization.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Built a custom physics engine with configurable parameters for realistic movement simulation, including friction and gravity effects.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Developed an advanced weapon system featuring polymorphic interfaces and multiple projectile types, each with unique behavior patterns.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Implemented a sophisticated collision detection and resolution system using AABB (Axis-Aligned Bounding Box) methodology.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Created a dynamic game state management system handling real-time updates and maintaining game consistency across multiple players.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Engineered a modular weapon factory system supporting runtime weapon creation and distribution through spawn points.
-            </Typography>
-        </Box>
+        <ItemList title="Key Technical Achievements" items={achievements} />
 
-        <Typography variant="h5" gutterBottom>
-            Technical Implementation Highlights
-        </Typography>
-        <Box component="ul" sx={{ marginBottom: 3, paddingLeft: 2 }}>
-            <Typography component="li" variant="body1">
-                Utilized design patterns including Strategy Pattern for weapon behaviors and Factory Pattern for dynamic object creation.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Implemented thread-safe communication protocols between game components ensuring data consistency.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Developed a comprehensive event system managing game physics, collisions, and player interactions.
-            </Typography>
-            <Typography component="li" variant="body1">
-                Created an extensible architecture supporting easy addition of new weapons and game mechanics.
-            </Typography>
-        </Box>
+        <ItemList title="Technical Implementation Highlights" items={technicalHighlights} />
     </>
     );
 }

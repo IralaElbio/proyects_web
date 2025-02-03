@@ -2,7 +2,7 @@ import React from 'react'
 import BeginningGameSect from './SectionBeginningGame'
 import GameLoopAndMap from './SectionGameLoopMap'
 import Weapons from './SectionWeapons'
-import ProjectDetailsSection from './CompProjectDetails'
+import AccordionWNode from './CAccordion'
 
 
 
@@ -22,7 +22,7 @@ const GameInfoSection = [{
 
 function Game() {
     return (
-        <ProjectDetailsSection items={GameInfoSection} />
+        <AccordionWNode items={GameInfoSection} titleVariant='h5' />
     )
 }
 

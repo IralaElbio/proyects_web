@@ -2,19 +2,10 @@ import React from 'react'
 import { Stack } from '@mui/material';
 import ChallengesAndSolutions from './CompChallenges';
 import TitleAndDescription from './CompDescription';
-import AccordionListWithHeader from './CompAccordionList';
-
-const WeaponDescription = `
-Para las armas se implementa un diseño modular, utilizando la interfaz IActionableItem 
-como base para todas las interacciones. La implementación se divide en dos ramas principales: 
-ThrowableItem para objetos arrojables como granadas, y PlayerWeapon para armas más complejas que 
-utilizan estrategias de disparo personalizadas.
-El comportamiento de las armas se define a través del patrón Strategy con ShootingStrategy para poder personalizar cada tipo de disparo, ademas se usa una clase abstracta Bullet para lograr 
-diferentes tipos de proyectiles: balas normales de trayectoria recta, explosivas con daño en área, 
-especiales que afectan el movimiento del jugador, y elásticas que rebotan en las superficies. La creación 
-de estas armas está centralizada en WeaponFactory, que gestiona la instanciación de cada tipo específico 
-según su estrategia de disparo.`;
-
+import AccordionWNode from "./CAccordion"
+import ItemList from './CItemList';
+import DescriptionWithImage from "./CDescripWImage";
+import ParagraphList from './CParagraphList';
 
 const challengesAndSolutions = [
     {
@@ -40,37 +31,70 @@ const challengesAndSolutions = [
 ];
 
 
-const accordionData = [
-    {
-        summary: 'IActionableItem (armas)',
-        details: 'Esta interfaz es implementada por todas las armas del juego y define los métodos necesarios para gestionar sus acciones. Incluye funcionalidades como: acción al presionar la tecla, acción al soltar la tecla y actualización del estado del arma. Permite que cada arma tenga comportamientos únicos dependiendo de su tipo. PlayerWeapon y ThroweableItem son las clases que implementan esta interfaz. ThroweableItem abarca objetos que son lanzables, mientras que PlayerWeapon maneja la lógica más compleja asociada a las armas de los jugadores.',
-    },
-    {
-        summary: 'ShootingStrategy',
-        details: 'Clase que modela una estrategia de disparo utilizada por PlayerWeapon. Actúa como clase base para implementar comportamientos específicos de disparo. Usa un contexto (struct ShootingContext) que contiene la información necesaria para disparar. Las estrategias derivadas pueden modificar este contexto para adaptarlo a su estilo de disparo particular. Cada estrategia puede estar asociada a un "tipo de bala", lo que permite comportamientos únicos.',
-    },
-    {
-        summary: 'Tipos de Balas',
-        details: 'Existen cuatro tipos de balas: \n- **Normal**: Sigue una trayectoria recta, causa daño al impactar con jugadores y desaparece al colisionar con plataformas.\n- **Explosive**: Viaja en parábola, explota en un área causando daño a jugadores cercanos, y pierde velocidad al colisionar lateralmente con plataformas.\n- **Special**: Similar a la explosiva, pero genera una cáscara de banana que empuja a los jugadores al impactar. Al colisionar lateralmente con plataformas, pierde velocidad y cae.\n- **Elastic**: Rebota al colisionar con plataformas y causa daño al impactar con jugadores.',
-    },
-    {
-        summary: 'WeaponFactory',
-        details: 'Clase encargada de la creación de armas según su estrategia de disparo. Contiene la lógica necesaria para fabricar todas las armas del juego, integrando las estrategias y tipos de bala correspondientes.',
-    },
+const bulletTypes = [
+    "Normal: Sigue una trayectoria recta, causa daño al impactar con jugadores y desaparece al colisionar con plataformas.",
+    "Explosive: Viaja en parábola, explota en un área causando daño a jugadores cercanos, y pierde velocidad al colisionar lateralmente con plataformas.",
+    "Special: Similar a la explosiva, pero genera una cáscara de banana que empuja a los jugadores al impactar. Al colisionar lateralmente con plataformas, pierde velocidad y cae.",
+    "Elastic: Rebota al colisionar con plataformas y causa daño al impactar con jugadores."
 ];
 
 
+const content = [
+    {
+        title: 'IActionableItem',
+        content: (
+            <DescriptionWithImage description='Esta interfaz es implementada por todas las armas del juego
+            y define los métodos necesarios para gestionar sus acciones. 
+            Incluye funcionalidades como: acción al presionar la tecla, 
+            acción al soltar la tecla y actualización del estado del arma.
+            Permite que cada arma tenga comportamientos únicos dependiendo de su tipo.
+            PlayerWeapon y ThroweableItem son las clases que implementan esta interfaz.
+            ThroweableItem abarca objetos que son lanzables, mientras que 
+            PlayerWeapon maneja la lógica más compleja asociada a las armas de los jugadores.' imageSrc='ruta' />
+        ),
+    },
+    {
+        title: 'ShootingStrategy',
+        content: (
+            <DescriptionWithImage description='Clase que modela una estrategia de disparo utilizada por PlayerWeapon.
+            Actúa como clase base para implementar comportamientos específicos de disparo.
+            Usa un contexto (struct ShootingContext) que contiene la información necesaria para disparar.
+            Las estrategias derivadas pueden modificar este contexto para adaptarlo a su estilo de disparo particular.
+            Cada estrategia puede estar asociada a un "tipo de bala", lo que permite comportamientos únicos.' imageSrc='ruta' />
+        ),
+    },
+    {
+        title: 'Tipos de Balas',
+        content: (
+            <Stack>
+                <ItemList title="Existen cuatro tipos de balas" items={bulletTypes} titleVariant='h6' />
+                <DescriptionWithImage description='Diagrama UML' imageSrc='ruta' />
+            </Stack>
+        ),
+    },
+]
 
 function Weapons() {
     return (
         <Stack spacing={3}>
 
-            <TitleAndDescription title="Overview"
-                description={WeaponDescription} />
+            <TitleAndDescription title="Overview">
+                <ParagraphList content={[
+                    "Para las armas se implementa un diseño modular, utilizando la interfaz IActionableItem como base para todas las interacciones.",
+
+                    "La implementación se divide en dos ramas principales: ThrowableItem para objetos arrojables como granadas, y PlayerWeapon para armas más complejas que utilizan estrategias de disparo personalizadas.",
+
+                    "El comportamiento de las armas se define a través del patrón Strategy llamado ShootingStrategy para poder personalizar cada tipo de disparo, ademas se usa una clase abstracta Bullet para lograr diferentes tipos de proyectiles.",
+
+                    "balas normales de trayectoria recta, explosivas con daño en área, especiales que afectan el movimiento del jugador, y elásticas que rebotan en las superficies.",
+
+                    "La creación de estas armas está centralizada en WeaponFactory, que gestiona la instanciación de cada tipo específico según su estrategia de disparo."
+                ]} />
+            </TitleAndDescription>
+
             <ChallengesAndSolutions data={challengesAndSolutions} />
 
-            <AccordionListWithHeader title="Informacion adicional de las clases" data={accordionData} />
-
+            <AccordionWNode items={content} titleVariant='h6' />
         </Stack>
     )
 }
