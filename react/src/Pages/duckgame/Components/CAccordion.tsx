@@ -1,6 +1,8 @@
 import React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
+import { SubSectionTitle } from "../DuckGameStyles";
+import { styled } from "@mui/material/styles";
 
 interface AccordionItem {
   title: string;
@@ -12,18 +14,34 @@ interface AccordionListProps {
   titleVariant?: "h5" | "inherit" | "h6"; // add more if need
 }
 
+const CustomAccordion = styled(Accordion)(({ theme }) => ({
+  backgroundColor: "transparent",
+  boxShadow: "none",
+  "&::before": {
+    display: "none", // Elimina la línea divisoria por defecto
+  },
+  "&.Mui-expanded": {
+    margin: "0", // Evita que el expandido afecte el diseño
+  },
+}))
+
+const CustomAccordionDetails = styled(AccordionDetails)(() => ({
+  padding: "16px",
+  borderRadius: "8px",
+}));
+
 const AccordionWNode: React.FC<AccordionListProps> = ({ items }) => {
   return (
     <>
       {items.map((item, index) => (
-        <Accordion key={index}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5" gutterBottom>{item.title}</Typography>
+        <CustomAccordion key={index}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}>
+            <Typography variant="h5" gutterBottom>
+              {item.title}
+            </Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            {item.content}
-          </AccordionDetails>
-        </Accordion>
+          <CustomAccordionDetails>{item.content}</CustomAccordionDetails>
+        </CustomAccordion>
       ))}
     </>
   );

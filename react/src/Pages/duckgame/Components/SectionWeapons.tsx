@@ -1,11 +1,10 @@
-import React from 'react'
 import { Stack } from '@mui/material';
 import ChallengesAndSolutions from './CompChallenges';
-import TitleAndDescription from './CompDescription';
 import AccordionWNode from "./CAccordion"
 import ItemList from './CItemList';
 import DescriptionWithImage from "./CDescripWImage";
 import ParagraphList from './CParagraphList';
+import { SubSectionTitle, StyledBox } from '../DuckGameStyles';
 
 const challengesAndSolutions = [
     {
@@ -76,9 +75,9 @@ const content = [
 
 function Weapons() {
     return (
-        <Stack spacing={3}>
-
-            <TitleAndDescription title="Overview">
+        <>
+            <StyledBox>
+                <SubSectionTitle> Overview </SubSectionTitle>
                 <ParagraphList content={[
                     "Para las armas se implementa un diseño modular, utilizando la interfaz IActionableItem como base para todas las interacciones.",
 
@@ -90,12 +89,13 @@ function Weapons() {
 
                     "La creación de estas armas está centralizada en WeaponFactory, que gestiona la instanciación de cada tipo específico según su estrategia de disparo."
                 ]} />
-            </TitleAndDescription>
+            </StyledBox>
+
 
             <ChallengesAndSolutions data={challengesAndSolutions} />
 
             <AccordionWNode items={content} titleVariant='h6' />
-        </Stack>
+        </>
     )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import { SubSectionTitle, TextBody } from "../DuckGameStyles"
 
 interface ChallengeSolution {
     title: string;
@@ -14,18 +15,17 @@ interface ChallengesAndSolutionsProps {
 const ChallengesAndSolutions: React.FC<ChallengesAndSolutionsProps> = ({ data }) => {
     return (
         <Box>
-            <Typography variant="h5" gutterBottom>Challanges and Solutions</Typography>
+            <SubSectionTitle>Challanges and Solutions</SubSectionTitle>
             {data.map((item, index) => (
-                <Box key={index} mb={1}>
-                    <Typography variant="body1" fontWeight="bold">
+                <Box key={index}>
+                    <TextBody fontWeight="bold">
                         {item.title}
-                    </Typography>
-                    <Typography variant="body1">
+                    </TextBody>
+                    <TextBody>
                         <strong>Reto:</strong> {item.challenge}
-                    </Typography>
-                    <Typography variant="body1">
+                        <br />
                         <strong>Solución:</strong> {item.solution}
-                    </Typography>
+                    </TextBody>
                 </Box>
             ))}
         </Box>

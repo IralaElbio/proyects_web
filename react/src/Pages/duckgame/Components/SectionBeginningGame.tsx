@@ -1,11 +1,9 @@
-import React from "react";
-import { Box, Stack, Typography } from '@mui/material';
-import TitleAndDescription from "./CompDescription";
 import ChallengesAndSolutions from "./CompChallenges";
 import AccordionWNode from "./CAccordion"
 import DescriptionWithImage from "./CDescripWImage";
 import physicsConfigImage from "../Assets/PyshicsConfig.png";
 import ParagraphList from "./CParagraphList";
+import { SubSectionTitle, TextBody, StyledBox } from "../DuckGameStyles";
 
 const challengesAndSolutions = [
     {
@@ -29,23 +27,23 @@ const content = [
     {
         title: 'GameInstance',
         content: (
-            <Typography>
+            <TextBody>
                 Incluye el bucle principal del juego (GameLoop), la clase que administra a los jugadores de la partida (PlayerController) y el motor de físicas (PhysicsEngine) que los jugadores utilizarán al comenzar la partida. Es el "contenedor" (tiene todos los datos y clases) de la partida del juego, una partida del juego se ejecuta dentro de un GameInstance lo que hace que cada partida (si se quiere) pueda tener sus propias reglas de fisicas (modificando la configuracion de PhysicsEngine).
-            </Typography>
+            </TextBody>
         )
     },
     {
         title: 'Player',
         content: (
-            <Typography>
+            <TextBody>
                 Clase encargada de gestionar las acciones de los jugadores (Disparar y moverse), con métodos específicos para realizar dichas acciones. Contiene toda la informacion del jugador en un momento especifico del juego (esta disparando o no, esta corriendo o no, velocidad en algun eje, etc.), para que las demas clases puedan usar dicha informacion para modificar su estado.
-            </Typography>
+            </TextBody>
         ),
     },
     {
         title: 'PhysicsEngine',
         content: (
-            <Stack spacing={3}>
+            <>
                 <DescriptionWithImage
                     description="Clase encargada de realizar los movimientos del jugador, pre-configurada con los datos de los valores de las físicas en un struct (estructura de datos llamada PhysicsConfig)."
                     imageSrc={physicsConfigImage}
@@ -59,7 +57,7 @@ const content = [
                 <DescriptionWithImage
                     description="Gracias a estas dos estructuras de datos es que puede simular las físicas del juego para los jugadores."
                 />
-            </Stack>
+            </>
         ),
     },
 ];
@@ -67,8 +65,9 @@ const content = [
 
 const BeginningGameSect = () => {
     return (
-        <Stack spacing={3}>
-            <TitleAndDescription title="Overview" >
+        <>
+            <StyledBox>
+                <SubSectionTitle> Overview </SubSectionTitle>
                 <ParagraphList
                     content={[
                         " El sistema implementa un servidor de juego multijugador donde cada partida es manejada por una GameInstance, que actúa como el núcleo central coordinando todos los aspectos del juego. Este componente gestiona la sincronización de los jugadores y controla el inicio de las partidas mediante un sistema de múltiples hilos que manejan el bucle principal del juego y la comunicación con cada jugador.",
@@ -76,12 +75,12 @@ const BeginningGameSect = () => {
                         "Cada jugador opera con sus propios hilos de envío y recepción de datos, mientras que un sistema de estados físicos y configuraciones preestablecidas garantiza la consistencia del movimiento y las colisiones durante la partida.",
                     ]}
                 />
-            </TitleAndDescription>
+            </StyledBox>
 
             <ChallengesAndSolutions data={challengesAndSolutions} />
 
             <AccordionWNode items={content} titleVariant='inherit' />
-        </Stack>
+        </>
     );
 };
 

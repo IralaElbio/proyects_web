@@ -1,11 +1,9 @@
-import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
-import TitleAndDescription from "./CompDescription";
 import AccordionWNode from "./CAccordion"
 import ChallengesAndSolutions from "./CompChallenges";
 import DescriptionWithImage from "./CDescripWImage";
 import ParagraphList from "./CParagraphList";
 import ItemList from "./CItemList";
+import { StyledBox, SubSectionTitle, TextBody } from "../DuckGameStyles";
 
 const challengesAndSolutions = [
     {
@@ -49,19 +47,19 @@ const content = [
     {
         title: 'CollisionEventManager',
         content: (
-            <Typography>
+            <TextBody>
                 Resuelve colisiones detectadas por CollisionManager. Corrige posiciones de jugadores si colisionan con plataformas y les informa si están sobre ellas. Gestiona interacciones de balas con jugadores, accionando según el tipo de bala (hay balas que infringen daño y otras que no), y maneja colisiones de balas con plataformas, tambien accionando segun el tipo de bala.
-            </Typography>
+            </TextBody>
         )
     },
     {
         title: 'GameLoop',
         content: (
             <>
-                <Typography gutterBottom>
+                <TextBody>
                     Marca un orden el la realizacion de acciones del juego, esta clase no realiza ninguna accion, solo indica un orden, llamara a las clases necesarias para ejecutar las acciones.
-                </Typography>
-                <ItemList title="Hace las siguientes operaciones de manera ciclica: "
+                </TextBody>
+                <ItemList title="Oden de acciones: "
                     titleVariant="inherit" items={[
                         "Obtiene un accion (Moverse o Disparar) de un jugador y Realiza los pasos para ejecutar la accion.",
                         "LLama a Atualizar el estado de todos los jugadores, aqui es donde se actualiza el juego 1 frame.",
@@ -86,8 +84,9 @@ const content = [
 
 const GameLoopAndMap = () => {
     return (
-        <Stack spacing={3}>
-            <TitleAndDescription title="Overview">
+        <>
+            <StyledBox>
+                <SubSectionTitle> Overview </SubSectionTitle>
                 <ParagraphList
                     content={[
                         "GameMap gestiona todos los elementos fundamentales de la partida, desde plataformas y límites del mapa hasta la generación de objetos y el manejo de proyectiles.",
@@ -99,12 +98,12 @@ const GameLoopAndMap = () => {
                         "El núcleo de todo el juego se ejecuta a través del GameLoop, que coordina todas las acciones de los jugadores y actualiza el estado del juego en un orden específico, desde la ejecución de acciones individuales hasta la actualización del estado global del mapa, finalizando con la generación y distribución de mensajes de estado a todos los jugadores."
                     ]}
                 />
-            </TitleAndDescription>
+            </StyledBox>
 
             <ChallengesAndSolutions data={challengesAndSolutions} />
 
             <AccordionWNode items={content} titleVariant='inherit' />
-        </Stack>
+        </>
     );
 };
 

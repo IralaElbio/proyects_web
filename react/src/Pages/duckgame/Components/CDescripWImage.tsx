@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography, Box, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import { TextBody } from "../DuckGameStyles"
 
 interface DescriptionWithImageProps {
     description: string;
@@ -10,9 +11,9 @@ const DescriptionWithImage: React.FC<DescriptionWithImageProps> = ({ description
     return (
         <Stack spacing={2}>
             {description.split("\n").map((line, index) => (
-                <Typography key={index} variant="body1" paragraph>
+                <TextBody key={index}>
                     {line}
-                </Typography>
+                </TextBody>
             ))}
             <Box
                 maxWidth={500}
