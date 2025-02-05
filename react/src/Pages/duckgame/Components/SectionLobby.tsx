@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography, Stack } from '@mui/material';
+import { Typography } from '@mui/material';
+import { SpacedStack, FlexBoxRow, FlexBoxRowContent, SubSectionTitle } from "../DuckGameStyles"
 import ChallengesAndSolutions from './CompChallenges';
 import AccordionWNode from './CAccordion';
 import ParagraphList from './CParagraphList';
@@ -31,12 +32,12 @@ const challengesAndSolutions = [
 const content = [{
     title: "Lobby",
     content: (
-        <Stack spacing={3}>
-            <Stack direction="row" spacing={2}>
-                <Box>
-                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        <SpacedStack>
+            <FlexBoxRow>
+                <FlexBoxRowContent>
+                    <SubSectionTitle>
                         Overview
-                    </Typography>
+                    </SubSectionTitle>
                     <ParagraphList
                         content={[
                             "El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, manejando las conexiones individuales de los clientes mediante hilos dedicados.",
@@ -45,14 +46,14 @@ const content = [{
                             "Una vez que un lobby está completo y todos los jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición de los jugadores desde el lobby hacia la partida."
                         ]}
                     />
-                </Box>
+                </FlexBoxRowContent>
 
-                <Box width={1500} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
+                <FlexBoxRowContent width={1500} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
                     <Typography>Diagrama UML aquí</Typography>
-                </Box>
-            </Stack>
+                </FlexBoxRowContent>
+            </FlexBoxRow>
             <ChallengesAndSolutions data={challengesAndSolutions} />
-        </Stack>
+        </SpacedStack>
     ),
 },
 ]

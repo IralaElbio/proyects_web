@@ -1,9 +1,49 @@
 import React from "react";
-import { Typography, Chip, Stack, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { Typography, Stack, Box, Chip } from "@mui/material";
+import { StyledStackContainer, SubSectionTitle, TextBody } from "../DuckGameStyles";
 import { Hub } from "@mui/icons-material";
 import MediationIcon from '@mui/icons-material/Mediation';
 import CodeIcon from '@mui/icons-material/Code';
 import ItemList from "./CItemList";
+
+const StyledChip = styled(Chip)(({ theme }) => ({
+    borderColor: theme.palette.primary.main,
+    color: theme.palette.primary.main,
+    "& .MuiChip-icon": {
+        color: theme.palette.primary.main,
+    },
+}));
+
+const ProjectOverviewContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "row",
+    gap: theme.spacing(1),
+    minHeight: "300px",
+
+    [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+    },
+}));
+
+const ProjectOverviewContent = styled(Box)(({ theme }) => ({
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: theme.spacing(3),
+}));
+
+const ProjectOverviewVideo = styled(Box)(() => ({
+    flex: 1,
+    width: "100%",
+    aspectRatio: "16/9",
+    backgroundColor: "black",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}));
 
 const technologies = [
     { name: "C++", icon: <CodeIcon /> },
@@ -28,51 +68,35 @@ const technicalHighlights = [
 ];
 
 function ProjectOverview() {
-    return (<>
-        <Box sx={{
-            display: "flex",
-            flexDirection: "row",
-            marginBottom: "0px"
-        }}>
-            <Box flex={1}>
-                <Typography variant="h5" gutterBottom>
-                    Proyect Overview
-                </Typography>
-                <Typography variant="body1">
-                    Developed a comprehensive backend system for a real-time multiplayer action game,
-                    implementing a robust multithreaded architecture that handles complex game mechanics
-                    and player interactions. The project showcases advanced software engineering
-                    principles and pattern implementations while delivering smooth gameplay experiences.
-                </Typography>
-                <Stack direction="row" spacing={1} flexWrap="wrap" mt={2}>
-                    {technologies.map((tech) => (
-                        <Chip key={tech.name} label={tech.name} icon={tech.icon} variant="outlined" sx={{
-                            backgroundColor: "#ddd",
-                        }} />
-                    ))}
-                </Stack>
-            </Box>
-            <Box flex={1}>
-                {/* Replace with a video component or iframe */}
-                <Box
-                    sx={{
-                        width: "100%",
-                        aspectRatio: "16/9",
-                        backgroundColor: "black",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+    return (
+        <StyledStackContainer spacing={2}>
+            <ProjectOverviewContainer>
+                <ProjectOverviewContent>
+                    <SubSectionTitle>
+                        Project Overview
+                    </SubSectionTitle>
+                    <TextBody>
+                        Developed a comprehensive backend system for a real-time multiplayer action game,
+                        implementing a robust multithreaded architecture that handles complex game mechanics
+                        and player interactions. The project showcases advanced software engineering
+                        principles and pattern implementations while delivering smooth gameplay experiences.
+                    </TextBody>
+                    <Stack direction="row" spacing={1} flexWrap="wrap" mt={1}>
+                        {technologies.map((tech) => (
+                            <StyledChip key={tech.name} label={tech.name} icon={tech.icon} variant="outlined" />
+                        ))}
+                    </Stack>
+                </ProjectOverviewContent>
+                <ProjectOverviewVideo>
                     <Typography>Video Placeholder</Typography>
-                </Box>
-            </Box>
-        </Box>
+                </ProjectOverviewVideo>
+            </ProjectOverviewContainer>
 
-        <ItemList title="Key Technical Achievements" items={achievements} />
+            <ItemList title="Key Technical Achievements" items={achievements} />
 
-        <ItemList title="Technical Implementation Highlights" items={technicalHighlights} />
-    </>
+            <ItemList title="Technical Implementation Highlights" items={technicalHighlights} />
+
+        </StyledStackContainer>
     );
 }
 
