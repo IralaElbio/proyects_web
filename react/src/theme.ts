@@ -2,7 +2,6 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
     palette: {
-        mode: "dark", // Tema oscuro (puedes usar "light" si prefieres un tema claro)
         primary: {
             main: "#FFD700", // Amarillo elegante
         },
