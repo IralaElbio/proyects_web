@@ -1,5 +1,7 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
+import { SubSectionTitle } from "../DuckGameStyles"; // Importar estilos
+import { Box, BoxProps, styled, Typography } from "@mui/material";
+
 
 interface ListProps {
     title: string;
@@ -7,20 +9,39 @@ interface ListProps {
     items: string[];
 }
 
+// Lista no ordenada
+const StyledList = styled(Box)<BoxProps>(({ theme }) => ({
+    marginBottom: theme.spacing(2),
+    paddingLeft: theme.spacing(3),
+    listStyle: "disc", // Usa bullets predeterminados
+}));
+
+// Elementos de la lista
+const StyledListItem = styled(Typography)<BoxProps>(({ theme }) => ({
+    fontSize: "1.2rem",
+    color: theme.palette.text.secondary,
+    lineHeight: 1.6,
+    "&::marker": {
+        color: theme.palette.primary.main, // Color del bullet
+    },
+}));
+
+
+
 const ItemList: React.FC<ListProps> = ({ title, titleVariant = "h5", items }) => {
     return (
-        <Box>
-            <Typography variant={titleVariant} gutterBottom>
+        <>
+            <SubSectionTitle variant={titleVariant}>
                 {title}
-            </Typography>
-            <Box component="ul" sx={{ marginBottom: 3, paddingLeft: 2 }}>
+            </SubSectionTitle>
+            <StyledList component="ul">
                 {items.map((item, index) => (
-                    <Typography key={index} component="li" variant="body1">
+                    <StyledListItem key={index} component="li" variant="body1">
                         {item}
-                    </Typography>
+                    </StyledListItem>
                 ))}
-            </Box>
-        </Box>
+            </StyledList>
+        </>
     );
 };
 
