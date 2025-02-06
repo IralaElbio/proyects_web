@@ -94,6 +94,7 @@ function Weapons() {
 
             <ChallengesAndSolutions data={challengesAndSolutions} />
 
+            <SubSectionTitle>Class Information</SubSectionTitle>
             <AccordionWNode items={content} titleVariant='h6' />
         </>
     )

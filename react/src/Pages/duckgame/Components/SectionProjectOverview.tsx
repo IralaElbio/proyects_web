@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import { Typography, Stack, Box, Chip } from "@mui/material";
-import { StyledStackContainer, SubSectionTitle, TextBody } from "../DuckGameStyles";
+import { FlexBoxRow, FlexBoxRowContent, StyledStackContainer, SubSectionTitle, TextBody } from "../DuckGameStyles";
 import { Hub } from "@mui/icons-material";
 import MediationIcon from '@mui/icons-material/Mediation';
 import CodeIcon from '@mui/icons-material/Code';
@@ -12,17 +12,6 @@ const StyledChip = styled(Chip)(({ theme }) => ({
     color: theme.palette.primary.main,
     "& .MuiChip-icon": {
         color: theme.palette.primary.main,
-    },
-}));
-
-const ProjectOverviewContainer = styled(Box)(({ theme }) => ({
-    display: "flex",
-    flexDirection: "row",
-    gap: theme.spacing(1),
-    minHeight: "300px",
-
-    [theme.breakpoints.down("sm")]: {
-        flexDirection: "column",
     },
 }));
 
@@ -69,8 +58,8 @@ const technicalHighlights = [
 
 function ProjectOverview() {
     return (
-        <StyledStackContainer spacing={2}>
-            <ProjectOverviewContainer>
+        <StyledStackContainer>
+            <FlexBoxRow>
                 <ProjectOverviewContent>
                     <SubSectionTitle>
                         Project Overview
@@ -90,7 +79,7 @@ function ProjectOverview() {
                 <ProjectOverviewVideo>
                     <Typography>Video Placeholder</Typography>
                 </ProjectOverviewVideo>
-            </ProjectOverviewContainer>
+            </FlexBoxRow>
 
             <ItemList title="Key Technical Achievements" items={achievements} />
 

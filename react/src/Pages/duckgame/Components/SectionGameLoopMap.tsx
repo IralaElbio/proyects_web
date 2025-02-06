@@ -102,7 +102,8 @@ const GameLoopAndMap = () => {
 
             <ChallengesAndSolutions data={challengesAndSolutions} />
 
-            <AccordionWNode items={content} titleVariant='inherit' />
+            <SubSectionTitle>Class Information</SubSectionTitle>
+            <AccordionWNode items={content} titleVariant='h6' />
         </>
     );
 };

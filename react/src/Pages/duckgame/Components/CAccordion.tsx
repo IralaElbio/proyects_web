@@ -14,32 +14,34 @@ interface AccordionListProps {
   titleVariant?: "h5" | "inherit" | "h6"; // add more if need
 }
 
-const CustomAccordion = styled(Accordion)(({ theme }) => ({
-  backgroundColor: "transparent",
+// Contenedor para información desplegable
+export const CustomAccordion = styled(Accordion)(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  borderRadius: "2px",
   boxShadow: "none",
-  "&::before": {
-    display: "none", // Elimina la línea divisoria por defecto
-  },
-  "&.Mui-expanded": {
-    margin: "0", // Evita que el expandido afecte el diseño
-  },
-}))
-
-const CustomAccordionDetails = styled(AccordionDetails)(() => ({
-  padding: "16px",
-  borderRadius: "8px",
 }));
 
-const AccordionWNode: React.FC<AccordionListProps> = ({ items }) => {
+// Contenedor para información desplegable
+export const CustomAccordionDetails = styled(AccordionDetails)(() => ({
+  padding: "16px",
+}));
+
+// Contenido del acordeón
+export const CustomAccordionSummary = styled(AccordionSummary)(() => ({
+  fontWeight: "bold",
+  fontSize: "1.1rem",
+}));
+
+const AccordionWNode: React.FC<AccordionListProps> = ({ items, titleVariant }) => {
   return (
     <>
       {items.map((item, index) => (
         <CustomAccordion key={index}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}>
-            <Typography variant="h5" gutterBottom>
+          <CustomAccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}>
+            <Typography variant={titleVariant} gutterBottom>
               {item.title}
             </Typography>
-          </AccordionSummary>
+          </CustomAccordionSummary>
           <CustomAccordionDetails>{item.content}</CustomAccordionDetails>
         </CustomAccordion>
       ))}

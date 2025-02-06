@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { SpacedStack, FlexBoxRow, FlexBoxRowContent, SubSectionTitle } from "../DuckGameStyles"
+import { SpacedStack, FlexBoxRow, FlexBoxRowContent, SubSectionTitle, StyledBox } from "../DuckGameStyles"
 import ChallengesAndSolutions from './CompChallenges';
 import AccordionWNode from './CAccordion';
 import ParagraphList from './CParagraphList';
@@ -33,25 +33,27 @@ const content = [{
     title: "Lobby",
     content: (
         <SpacedStack>
-            <FlexBoxRow>
-                <FlexBoxRowContent>
-                    <SubSectionTitle>
-                        Overview
-                    </SubSectionTitle>
-                    <ParagraphList
-                        content={[
-                            "El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, manejando las conexiones individuales de los clientes mediante hilos dedicados.",
-                            "La coordinación central se realiza a través de GameManager, un monitor que gestiona tanto los lobbies de espera como las instancias activas de juego.",
-                            "El proceso de unión de jugadores se maneja a través de Lobbies, que actúan como salas de espera donde los jugadores pueden reunirse antes de comenzar una partida.",
-                            "Una vez que un lobby está completo y todos los jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición de los jugadores desde el lobby hacia la partida."
-                        ]}
-                    />
-                </FlexBoxRowContent>
+            <StyledBox>
 
-                <FlexBoxRowContent width={1500} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
-                    <Typography>Diagrama UML aquí</Typography>
-                </FlexBoxRowContent>
-            </FlexBoxRow>
+                <FlexBoxRow>
+                    <FlexBoxRowContent>
+                        <SubSectionTitle>
+                            Overview
+                        </SubSectionTitle>
+                        <ParagraphList
+                            content={[
+                                "El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, manejando las conexiones individuales de los clientes mediante hilos dedicados.",
+                                "La coordinación central se realiza a través de GameManager, un monitor que gestiona tanto los lobbies de espera como las instancias activas de juego.",
+                                "El proceso de unión de jugadores se maneja a través de Lobbies, que actúan como salas de espera donde los jugadores pueden reunirse antes de comenzar una partida.",
+                                "Una vez que un lobby está completo y todos los jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición de los jugadores desde el lobby hacia la partida."
+                            ]}
+                        />
+                    </FlexBoxRowContent>
+                    <FlexBoxRowContent width={1500} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
+                        <Typography>Diagrama UML aquí</Typography>
+                    </FlexBoxRowContent>
+                </FlexBoxRow>
+            </StyledBox>
             <ChallengesAndSolutions data={challengesAndSolutions} />
         </SpacedStack>
     ),

@@ -2,35 +2,41 @@ import ProyectOverview from "./Components/SectionProjectOverview"
 import Lobby from "./Components/SectionLobby";
 import Game from "./Components/SectionGame";
 import HeroSection from "./Components/SectionTitle";
-import { SectionTitle, SubSection, SubTitle, SpacedStack } from "./DuckGameStyles";
+import { SectionTitle, SubSection, SubTitle, SpacedStack, MainContainer, TextBody } from "./DuckGameStyles";
+import { Typography } from "@mui/material";
 
 const DuckGamePage = () => {
   return (
     <>
       <HeroSection />
 
-      <SpacedStack>
+      <MainContainer>
 
-        {/* Overview Section */}
-        <ProyectOverview />
+        <SpacedStack>
 
-        <SubTitle>
-          Tecnical Information
-        </SubTitle>
+          {/* Overview Section */}
+          <ProyectOverview />
 
-        {/* Lobby Logic Section */}
-        <SubSection>
-          <SectionTitle> Pre-Game Logic </SectionTitle>
-          <Lobby />
-        </SubSection>
+          <SubTitle>
+            Tecnical Information
+            <Typography textAlign={"center"} fontWeight={200}>Informacion adicional de clases asi como desafios que presento el proyecto</Typography>
+          </SubTitle>
 
-        {/* Game Logic Section */}
-        <SubSection>
-          <SectionTitle> In-Game Logic </SectionTitle>
-          <Game />
-        </SubSection>
+          {/* Lobby Logic Section */}
+          <SubSection>
+            <SectionTitle> Pre-Game Logic </SectionTitle>
+            <Lobby />
+          </SubSection>
 
-      </SpacedStack>
+          {/* Game Logic Section */}
+          <SubSection>
+            <SectionTitle> In-Game Logic </SectionTitle>
+            <Game />
+          </SubSection>
+
+        </SpacedStack>
+      </MainContainer>
+
     </>
   );
 };

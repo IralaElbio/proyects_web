@@ -1,51 +1,38 @@
 import { createTheme } from "@mui/material/styles";
 
+// Tema personalizado con colores fríos y oscuros
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#FFD700", // Amarillo elegante
+            main: "#4A90E2", // Azul frío
         },
         secondary: {
-            main: "#1E88E5", // Azul moderno
+            main: "#7B61FF", // Morado elegante
         },
         background: {
-            default: "#121212", // Fondo general oscuro
-            paper: "#1E1E1E", // Fondos secundarios
+            default: "#121212", // Negro azulado oscuro
+            paper: "#1E1E1E", // Gris oscuro
         },
         text: {
-            primary: "#FFFFFF", // Texto principal
-            secondary: "#DCDCDC", // Texto secundario
+            primary: "#E0E0E0", // Blanco grisáceo
+            secondary: "#B0B0B0", // Gris claro
         },
     },
     typography: {
-        fontFamily: "'Roboto', 'Arial', sans-serif",
-        h1: {
-            fontSize: "3rem",
-            fontWeight: 700,
-            letterSpacing: "2px",
-        },
-        h2: {
-            fontSize: "2.5rem",
-            fontWeight: 600,
-        },
-        body1: {
-            fontSize: "1rem",
-            lineHeight: 1.6,
-        },
-        button: {
-            textTransform: "none", // Sin mayúsculas automáticas en botones
-        },
+        fontFamily: "Poppins, sans-serif",
     },
-    spacing: 8, // Define la unidad base de espaciado (8px por defecto)
+    spacing: 8, // Espaciado base
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius: "8px", // Botones con bordes redondeados
+                    borderRadius: "8px", // Bordes redondeados en botones
+                    textTransform: "none",
                 },
             },
         },
     },
 });
+
 
 export default theme;

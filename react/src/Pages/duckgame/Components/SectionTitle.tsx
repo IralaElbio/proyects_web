@@ -81,7 +81,7 @@ const HeroSection = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const fadeOutPoint = 1000; // Ajusta para que la transición sea más suave
+      const fadeOutPoint = 1500; // Ajusta para que la transición sea más suave
       setOpacity(Math.max(1 - scrollY / fadeOutPoint, 0));
       setScale(Math.max(1 - scrollY / (fadeOutPoint * 1.5), 0.9));
     };
