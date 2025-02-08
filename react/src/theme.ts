@@ -1,33 +1,51 @@
 import { createTheme } from "@mui/material/styles";
 
-// Tema personalizado con colores fríos y oscuros
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#4A90E2", // Azul frío
+            main: "#0050D0",
+            light: "#3578E5",
+            dark: "#003A90",
         },
         secondary: {
-            main: "#7B61FF", // Morado elegante
+            main: "#D97700",
+            light: "#E68A2E",
+            dark: "#A85A00",
         },
         background: {
-            default: "#121212", // Negro azulado oscuro
-            paper: "#1E1E1E", // Gris oscuro
+            default: "#111923",
+            paper: "#1A2633",
         },
         text: {
-            primary: "#E0E0E0", // Blanco grisáceo
-            secondary: "#B0B0B0", // Gris claro
+            primary: "#E5E9EC",
+            secondary: "#A7B6C2",
         },
     },
+
     typography: {
         fontFamily: "Poppins, sans-serif",
     },
-    spacing: 8, // Espaciado base
+    spacing: 8,
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius: "8px", // Bordes redondeados en botones
+                    borderRadius: "8px",
                     textTransform: "none",
+                },
+            },
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundImage: "none",
+                },
+            },
+        },
+        MuiAppBar: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: "#171E24",
                 },
             },
         },

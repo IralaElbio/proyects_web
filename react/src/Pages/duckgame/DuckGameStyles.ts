@@ -1,19 +1,30 @@
 import { styled } from "@mui/material/styles";
 import { Box, Container, Typography, Stack } from "@mui/material";
 
-// Contenedor para una Subsección dentro de una sección
+
+export const PilarsContainer = styled(Box)(() => ({
+    display: "flex",
+    background: `linear-gradient(to bottom,  rgba(27, 58, 94, 0.9), rgba(17, 25, 35, 0.8))`,
+    minHeight: "100vh",
+}));
+
+export const PagePillar = styled(Box)(() => ({
+    flex: "1",
+}));
+
 export const SubSection = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.background.paper,
+    borderTop: `.5px solid ${theme.palette.primary.dark}`,
+    boxShadow: "inset 0px 4px 12px rgba(0, 50, 120, 0.5)",
     padding: theme.spacing(3),
     borderRadius: "12px",
 }));
 
 // Contenedor principal de la página
 export const MainContainer = styled(Box)(({ theme }) => ({
-    maxWidth: "1800px",
+    background: theme.palette.background.default,
+    flex: "12",
     padding: theme.spacing(4),
-    alignItems: "center",
-    justifyContent: "center",
+    borderRadius: "30px",
 }));
 
 // Contenedor para agrupar por row, lo uso para contener un texto al lado de la imagen
@@ -37,11 +48,11 @@ export const FlexBoxRowContent = styled(Box)(({ theme }) => ({
 
 // Box para contener zonas principales de información
 export const StyledBox = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.background.default,
+    background: `linear-gradient(to bottom, rgba(1, 16, 37, 0.3), rgba(5, 10, 20, 0.3))`,
     padding: theme.spacing(3),
     marginBottom: theme.spacing(2),
-    borderRadius: "5px",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+    borderTop: `.5px solid ${theme.palette.primary.dark}`,
+    borderRadius: "14px",
 }));
 
 // Título de subsecciones
@@ -82,7 +93,7 @@ export const SubSectionTitle = styled(Typography)(({ theme }) => ({
     fontSize: "clamp(1.2rem, 4vw, 1.6rem)",
     fontWeight: "600",
     marginBottom: theme.spacing(1),
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
 }));
 
 // Estilo para los párrafos de texto
@@ -90,7 +101,7 @@ export const TextBody = styled(Typography)(({ theme }) => ({
     fontSize: "clamp(0.6rem, 2vw, 1.2rem)",
     lineHeight: "1.5",
     marginBottom: theme.spacing(1.5),
-    color: theme.palette.text.primary,
+    color: theme.palette.text.secondary,
 }));
 
 // Stack con espaciado personalizado

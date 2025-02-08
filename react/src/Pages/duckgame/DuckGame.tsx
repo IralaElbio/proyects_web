@@ -2,7 +2,7 @@ import ProyectOverview from "./Components/SectionProjectOverview"
 import Lobby from "./Components/SectionLobby";
 import Game from "./Components/SectionGame";
 import HeroSection from "./Components/SectionTitle";
-import { SectionTitle, SubSection, SubTitle, SpacedStack, MainContainer, TextBody } from "./DuckGameStyles";
+import { SectionTitle, SubSection, SubTitle, SpacedStack, MainContainer, PilarsContainer, PagePillar } from "./DuckGameStyles";
 import { Typography } from "@mui/material";
 
 const DuckGamePage = () => {
@@ -10,13 +10,22 @@ const DuckGamePage = () => {
     <>
       <HeroSection />
 
-      <MainContainer>
+      <PilarsContainer>
+        <PagePillar />
 
-        <SpacedStack>
+
+        <MainContainer>
 
           {/* Overview Section */}
           <ProyectOverview />
 
+        </MainContainer>
+        <PagePillar />
+      </PilarsContainer>
+
+      <MainContainer>
+
+        <SpacedStack>
           <SubTitle>
             Tecnical Information
             <Typography textAlign={"center"} fontWeight={200}>Informacion adicional de clases asi como desafios que presento el proyecto</Typography>
@@ -36,7 +45,6 @@ const DuckGamePage = () => {
 
         </SpacedStack>
       </MainContainer>
-
     </>
   );
 };
