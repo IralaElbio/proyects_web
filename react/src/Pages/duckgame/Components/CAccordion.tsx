@@ -11,12 +11,12 @@ interface AccordionItem {
 
 interface AccordionListProps {
   items: AccordionItem[];
-  titleVariant?: "h5" | "inherit" | "h6"; // add more if need
+  titleVariant?: "h5" | "inherit" | "h6";
 }
 
 // Contenedor para información desplegable
 export const CustomAccordion = styled(Accordion)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: "transparent",
   borderRadius: "2px",
   boxShadow: "none",
 }));

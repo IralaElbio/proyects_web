@@ -18,9 +18,7 @@ const ChallengesAndSolutions: React.FC<ChallengesAndSolutionsProps> = ({ data })
             <SubSectionTitle>Challanges and Solutions</SubSectionTitle>
             {data.map((item, index) => (
                 <Box key={index}>
-                    <TextBody fontWeight="bold">
-                        {item.title}
-                    </TextBody>
+                    <Typography fontWeight="bold" color='white' variant='h6'> {item.title} </Typography>
                     <TextBody>
                         <strong>Reto:</strong> {item.challenge}
                         <br />

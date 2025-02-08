@@ -13,7 +13,7 @@ interface ListProps {
 const StyledList = styled(Box)<BoxProps>(({ theme }) => ({
     marginBottom: theme.spacing(2),
     paddingLeft: theme.spacing(3),
-    listStyle: "disc", // Usa bullets predeterminados
+    listStyle: "disc",
 }));
 
 // Elementos de la lista
@@ -22,7 +22,7 @@ const StyledListItem = styled(Typography)<BoxProps>(({ theme }) => ({
     color: theme.palette.text.secondary,
     lineHeight: 1.6,
     "&::marker": {
-        color: theme.palette.primary.main, // Color del bullet
+        color: theme.palette.primary.light,
     },
 }));
 

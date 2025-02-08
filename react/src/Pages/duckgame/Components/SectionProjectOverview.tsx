@@ -8,10 +8,10 @@ import CodeIcon from '@mui/icons-material/Code';
 import ItemList from "./CItemList";
 
 const StyledChip = styled(Chip)(({ theme }) => ({
-    borderColor: theme.palette.primary.main,
-    color: theme.palette.primary.main,
+    borderColor: theme.palette.primary.light,
+    color: theme.palette.primary.light,
     "& .MuiChip-icon": {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.light,
     },
 }));
 
