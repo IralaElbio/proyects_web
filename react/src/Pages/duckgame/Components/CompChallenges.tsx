@@ -18,11 +18,11 @@ const ChallengesAndSolutions: React.FC<ChallengesAndSolutionsProps> = ({ data })
             <SubSectionTitle>Challanges and Solutions</SubSectionTitle>
             {data.map((item, index) => (
                 <Box key={index}>
-                    <Typography fontWeight="bold" color='white' variant='h6'> {item.title} </Typography>
+                    <Typography fontWeight="bold" color='white' variant='h6' sx={{ fontSize: "clamp(0.8rem, 2vw, 1.5rem)" }}> {item.title} </Typography>
                     <TextBody>
-                        <strong>Reto:</strong> {item.challenge}
+                        <strong>Challenge:</strong> {item.challenge}
                         <br />
-                        <strong>Solución:</strong> {item.solution}
+                        <strong>Solution:</strong> {item.solution}
                     </TextBody>
                 </Box>
             ))}

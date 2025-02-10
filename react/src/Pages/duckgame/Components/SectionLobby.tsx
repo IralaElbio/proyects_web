@@ -1,4 +1,3 @@
-import React from 'react';
 import { Typography } from '@mui/material';
 import { SpacedStack, FlexBoxRow, FlexBoxRowContent, SubSectionTitle, StyledBox } from "../DuckGameStyles"
 import ChallengesAndSolutions from './CompChallenges';
@@ -7,24 +6,24 @@ import ParagraphList from './CParagraphList';
 
 const challengesAndSolutions = [
     {
-        title: 'Gestión de múltiples conexiones simultáneas',
-        challenge: 'Aceptar y manejar múltiples clientes sin bloquear las operaciones del servidor.',
-        solution: 'Se utilizó un hilo (ClientManager) para cada cliente, permitiendo la gestión simultánea de sus solicitudes y comunicación de manera eficiente y aislada.'
+        title: 'Managing Multiple Simultaneous Connections',
+        challenge: 'Accepting and handling multiple clients without blocking server operations.',
+        solution: 'A dedicated thread (ClientManager) was assigned to each client, allowing simultaneous request handling and efficient, isolated communication.'
     },
     {
-        title: 'Sincronización entre clientes y lobbies',
-        challenge: 'Evitar conflictos al permitir que varios clientes interactúen con los mismos recursos (lobbies).',
-        solution: 'El GameManager actúa como un monitor, sincronizando el acceso a los lobbies y garantizando que no se produzcan condiciones de carrera o inconsistencias.'
+        title: 'Synchronization Between Clients and Lobbies',
+        challenge: 'Preventing conflicts when multiple clients interact with shared resources (lobbies)',
+        solution: 'GameManager acts as a monitor, synchronizing access to lobbies and ensuring no race conditions or inconsistencies occur.'
     },
     {
-        title: 'Transición del Lobby al Juego',
-        challenge: 'Determinar cuándo un lobby está listo para iniciar una instancia de juego y manejar la transición sin interrupciones.',
-        solution: 'Cada Lobby notifica al GameManager cuando todos los clientes están listos, lo que desencadena la creación de una instancia de juego y la eliminación del lobby.'
+        title: 'Transition from Lobby to Game',
+        challenge: 'Determining when a lobby is ready to start a game instance and managing a seamless transition.',
+        solution: 'Each Lobby notifies GameManager when all clients are ready, triggering the creation of a game instance and the removal of the lobby.'
     },
     {
-        title: 'Optimización del uso de recursos',
-        challenge: 'Gestionar la creación y eliminación de hilos y recursos para evitar sobrecargar el servidor.',
-        solution: 'Los hilos de ClientManager y las instancias de lobbies y juegos se eliminan de manera controlada una vez que cumplen su propósito (El cliente deja el lobby para pasar al juego). '
+        title: 'Resource Usage Optimization',
+        challenge: 'Managing thread and resource creation/deletion to prevent server overload.',
+        solution: 'ClientManager threads, along with lobby and game instances, are properly disposed of once they have fulfilled their purpose (when clients leave the lobby to join the game).'
     }
 ];
 
@@ -42,10 +41,10 @@ const content = [{
                         </SubSectionTitle>
                         <ParagraphList
                             content={[
-                                "El sistema implementa una arquitectura cliente-servidor donde ClientManager actúa como punto de entrada, manejando las conexiones individuales de los clientes mediante hilos dedicados.",
-                                "La coordinación central se realiza a través de GameManager, un monitor que gestiona tanto los lobbies de espera como las instancias activas de juego.",
-                                "El proceso de unión de jugadores se maneja a través de Lobbies, que actúan como salas de espera donde los jugadores pueden reunirse antes de comenzar una partida.",
-                                "Una vez que un lobby está completo y todos los jugadores están listos, GameManager coordina la creación de una nueva instancia de juego y la transición de los jugadores desde el lobby hacia la partida."
+                                "The system follows a client-server architecture where ClientManager acts as the entry point, handling individual client connections through dedicated threads.",
+                                "Central coordination is managed by GameManager, a monitor responsible for overseeing both waiting lobbies and active game instances.",
+                                "Player matchmaking is handled through Lobbies, which serve as waiting rooms where players can gather before starting a match.",
+                                "Once a lobby is full and all players are ready, GameManager coordinates the creation of a new game instance and transitions players from the lobby into the match."
                             ]}
                         />
                     </FlexBoxRowContent>

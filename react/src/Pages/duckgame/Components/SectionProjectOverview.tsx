@@ -1,4 +1,3 @@
-import React from "react";
 import { styled } from "@mui/material/styles";
 import { Typography, Stack, Box, Chip } from "@mui/material";
 import { FlexBoxRow, FlexBoxRowContent, StyledStackContainer, SubSectionTitle, TextBody } from "../DuckGameStyles";
@@ -10,18 +9,19 @@ import ItemList from "./CItemList";
 const StyledChip = styled(Chip)(({ theme }) => ({
     borderColor: theme.palette.primary.light,
     color: theme.palette.primary.light,
+    fontSize: "1rem",
+    height: "30px",
     "& .MuiChip-icon": {
         color: theme.palette.primary.light,
+        fontSize: "1rem",
     },
-}));
-
-const ProjectOverviewContent = styled(Box)(({ theme }) => ({
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: theme.spacing(3),
+    "@media (max-width: 700px)": {
+        fontSize: "0.6rem",
+        height: "18px",
+        "& .MuiChip-icon": {
+            fontSize: ".6rem",
+        },
+    },
 }));
 
 const ProjectOverviewVideo = styled(Box)(() => ({
@@ -32,6 +32,7 @@ const ProjectOverviewVideo = styled(Box)(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: "10px",
 }));
 
 const technologies = [
@@ -41,12 +42,11 @@ const technologies = [
 ];
 
 const achievements = [
-    "Designed and implemented a multithreaded game loop architecture managing concurrent player actions, physics calculations, and state synchronization.",
-    "Built a custom physics engine with configurable parameters for realistic movement simulation, including friction and gravity effects.",
+    "Designed and implemented a multithreaded game architecture managing concurrent player actions, physics calculations, and state synchronization.",
+    "Built a custom physics engine with configurable parameters for movement simulation, including friction and gravity effects.",
     "Developed an advanced weapon system featuring polymorphic interfaces and multiple projectile types, each with unique behavior patterns.",
-    "Implemented a sophisticated collision detection and resolution system using AABB (Axis-Aligned Bounding Box) methodology.",
-    "Created a dynamic game state management system handling real-time updates and maintaining game consistency across multiple players.",
-    "Engineered a modular weapon factory system supporting runtime weapon creation and distribution through spawn points."
+    "Implemented a collision detection and resolution system using AABB (Axis-Aligned Bounding Box) methodology.",
+    "Created a dynamic game state management system handling real-time updates and maintaining game consistency across multiple players."
 ];
 
 const technicalHighlights = [
@@ -59,23 +59,25 @@ const technicalHighlights = [
 function ProjectOverview() {
     return (
         <StyledStackContainer>
-            <FlexBoxRow>
-                <ProjectOverviewContent>
+            <FlexBoxRow marginBottom={6}>
+                <FlexBoxRowContent>
                     <SubSectionTitle>
                         Project Overview
                     </SubSectionTitle>
                     <TextBody>
-                        Developed a comprehensive backend system for a real-time multiplayer action game,
-                        implementing a robust multithreaded architecture that handles complex game mechanics
-                        and player interactions. The project showcases advanced software engineering
-                        principles and pattern implementations while delivering smooth gameplay experiences.
+                        Developed the server-side infrastructure for a real-time multiplayer action game,
+                        a replica of Duck Game, implementing client-server communication from scratch
+                        using C++ and sockets.
+                        Designed a multithreaded system to manage player connections,
+                        synchronize game state, and handle data transmission efficiently,
+                        ensuring all players receive real-time updates.
                     </TextBody>
-                    <Stack direction="row" spacing={1} flexWrap="wrap" mt={1}>
+                    <Stack direction="row" spacing={1} flexWrap="wrap" mt={1} gap={0.5}>
                         {technologies.map((tech) => (
                             <StyledChip key={tech.name} label={tech.name} icon={tech.icon} variant="outlined" />
                         ))}
                     </Stack>
-                </ProjectOverviewContent>
+                </FlexBoxRowContent>
                 <ProjectOverviewVideo>
                     <Typography>Video Placeholder</Typography>
                 </ProjectOverviewVideo>
