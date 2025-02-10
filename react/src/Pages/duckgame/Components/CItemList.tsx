@@ -9,16 +9,16 @@ interface ListProps {
     items: string[];
 }
 
-// Lista no ordenada
+
 const StyledList = styled(Box)<BoxProps>(({ theme }) => ({
     marginBottom: theme.spacing(2),
     paddingLeft: theme.spacing(3),
     listStyle: "disc",
 }));
 
-// Elementos de la lista
+
 const StyledListItem = styled(Typography)<BoxProps>(({ theme }) => ({
-    fontSize: "1.2rem",
+    fontSize: "clamp(0.6rem, 2vw, 1.2rem)",
     color: theme.palette.text.secondary,
     lineHeight: 1.6,
     "&::marker": {
@@ -30,7 +30,7 @@ const StyledListItem = styled(Typography)<BoxProps>(({ theme }) => ({
 
 const ItemList: React.FC<ListProps> = ({ title, titleVariant = "h5", items }) => {
     return (
-        <>
+        <Box>
             <SubSectionTitle variant={titleVariant}>
                 {title}
             </SubSectionTitle>
@@ -41,7 +41,7 @@ const ItemList: React.FC<ListProps> = ({ title, titleVariant = "h5", items }) =>
                     </StyledListItem>
                 ))}
             </StyledList>
-        </>
+        </Box>
     );
 };
 

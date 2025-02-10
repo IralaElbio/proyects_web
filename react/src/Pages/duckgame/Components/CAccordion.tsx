@@ -38,7 +38,7 @@ const AccordionWNode: React.FC<AccordionListProps> = ({ items, titleVariant }) =
       {items.map((item, index) => (
         <CustomAccordion key={index}>
           <CustomAccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}>
-            <Typography variant={titleVariant} gutterBottom>
+            <Typography variant={titleVariant} sx={{ fontSize: "clamp(0.8rem, 2vw, 1.5rem)" }} gutterBottom>
               {item.title}
             </Typography>
           </CustomAccordionSummary>

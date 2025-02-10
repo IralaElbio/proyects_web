@@ -1,20 +1,20 @@
 import { styled } from "@mui/material/styles";
-import { Box, Container, Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 
 
 export const PilarsContainer = styled(Box)(() => ({
     display: "flex",
-    background: `linear-gradient(to bottom,  rgba(27, 58, 94, 0.9), rgba(17, 25, 35, 0.8))`,
+    background: `linear-gradient(to bottom, rgba(73, 73, 70, 0.9), #212121)`,
     minHeight: "100vh",
 }));
+
 
 export const PagePillar = styled(Box)(() => ({
     flex: "1",
 }));
 
 export const SubSection = styled(Box)(({ theme }) => ({
-    borderTop: `.5px solid ${theme.palette.primary.dark}`,
-    boxShadow: "inset 0px 4px 12px rgba(0, 50, 120, 0.5)",
+    boxShadow: "inset 0px 2px 5px rgb(116, 114, 114)",
     padding: theme.spacing(3),
     borderRadius: "12px",
 }));
@@ -22,7 +22,14 @@ export const SubSection = styled(Box)(({ theme }) => ({
 // Contenedor principal de la página
 export const MainContainer = styled(Box)(({ theme }) => ({
     background: theme.palette.background.default,
+    borderTop: `2px solid ${theme.palette.secondary.main}`,
     flex: "12",
+    padding: theme.spacing(4),
+    borderRadius: "30px",
+}));
+
+export const PageContainer = styled(Box)(({ theme }) => ({
+    background: theme.palette.background.default,
     padding: theme.spacing(4),
     borderRadius: "30px",
 }));
@@ -34,7 +41,6 @@ export const FlexBoxRow = styled(Box)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     gap: theme.spacing(1),
-
     [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
     },
@@ -51,7 +57,7 @@ export const StyledBox = styled(Box)(({ theme }) => ({
     background: `linear-gradient(to bottom, rgba(1, 16, 37, 0.3), rgba(5, 10, 20, 0.3))`,
     padding: theme.spacing(3),
     marginBottom: theme.spacing(2),
-    borderTop: `.5px solid ${theme.palette.primary.dark}`,
+    borderTop: `2px solid ${theme.palette.secondary.dark}`,
     borderRadius: "14px",
 }));
 
@@ -90,7 +96,7 @@ export const StyledStackContainer = styled(Stack)(({ theme }) => ({
 
 // Títulos secundarios de Secciones (ej. Overview)
 export const SubSectionTitle = styled(Typography)(({ theme }) => ({
-    fontSize: "clamp(1.2rem, 4vw, 1.6rem)",
+    fontSize: "clamp(0.9rem, 2vw, 1.6rem)",
     fontWeight: "600",
     marginBottom: theme.spacing(1),
     color: theme.palette.text.primary,

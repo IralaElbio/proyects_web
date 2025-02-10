@@ -3,22 +3,28 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#0050D0",
-            light: "#3578E5",
-            dark: "#003A90",
+            main: "#FFC107", // Amarillo brillante, representativo del tema "pato".
+            light: "#FFD740", // Amarillo claro para elementos destacados.
+            dark: "#FFA000", // Amarillo oscuro para contrastes.
         },
         secondary: {
-            main: "#D97700",
-            light: "#E68A2E",
-            dark: "#A85A00",
+            main: "#757575", // Gris cálido para complementar el amarillo.
+            light: "#A4A4A4", // Gris más claro para detalles secundarios.
+            dark: "#494949", // Gris oscuro para un toque moderno.
         },
         background: {
-            default: "#111923",
-            paper: "#1A2633",
+            default: "#212121", // Negro grisáceo para el fondo general.
+            paper: "#303030", // Gris oscuro para tarjetas y elementos elevados.
         },
         text: {
-            primary: "#E5E9EC",
-            secondary: "#A7B6C2",
+            primary: "#F5F5F5", // Blanco ligeramente roto para un buen contraste.
+            secondary: "#BDBDBD", // Gris claro para texto secundario.
+        },
+        warning: {
+            main: "#FFA726", // Naranja suave para elementos de advertencia.
+        },
+        error: {
+            main: "#D32F2F", // Rojo intenso para errores.
         },
     },
 
