@@ -42,7 +42,7 @@ function MainBarr() {
               lineHeight: 1,
             }}
           >
-            System Engineer
+            Computer Engineering
           </Typography>
         </Box>
 

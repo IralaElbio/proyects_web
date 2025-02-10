@@ -4,27 +4,29 @@ import DescriptionWithImage from "./CDescripWImage";
 import ParagraphList from "./CParagraphList";
 import ItemList from "./CItemList";
 import { StyledBox, SubSectionTitle, TextBody } from "../DuckGameStyles";
+import collisionResult from "../Assets/CollisionResult.jpeg"
+import gameStateMessaage from "../Assets/GameStateMessage.jpeg"
 
 const challengesAndSolutions = [
     {
-        title: 'Gestión de colisiones',
-        challenge: 'Detectar y resolver distintos tipos de colisiones entre objetos como jugadores, balas, plataformas y spawners (Generadores de armas), proporcionando respuestas según el tipo de interacción.',
-        solution: 'Se usa la clase CollisionManager para solamente detectar colisiones y su tipo mediante el modelo AABB. La clase CollisionEventManager se usa para resolver dichas colisiones, actuando e informando a otras clases segun el tipo de colision.'
+        title: 'Collision Management',
+        challenge: 'Detecting and resolving different types of collisions between objects such as players, bullets, platforms, and spawners (Weapon Generators), providing responses based on the interaction type.',
+        solution: 'The CollisionManager class is used solely for detecting collisions and determining their type using the AABB model. The CollisionEventManager class is used to resolve these collisions, acting and notifying other classes based on the collision type.'
     },
     {
-        title: 'Interacción con spawners de armas',
-        challenge: 'Proveer armas de forma dinámica y aleatoria a los jugadores en el mapa.',
-        solution: 'Se integro la clase ItemSpawner, la cual los Players puede interactuar para obtener armas, esta clase genera armas aleatorias gracias a su interacion con una WeaponFactory (Fabrica de armas) para poder entregarselas a los jugadores.'
+        title: 'Weapon Spawner Interaction',
+        challenge: 'Providing dynamic and random weapons to players on the map.',
+        solution: 'The ItemSpawner class was integrated, which players can interact with to obtain weapons. This class generates random weapons through its interaction with a WeaponFactory, which supplies the weapons to the players.'
     },
     {
-        title: 'Control del flujo del juego',
-        challenge: 'Coordinar las acciones de los jugadores y su interacción con el mapa, asegurando una actualización sincronizada del estado del juego.',
-        solution: 'Se desarrolló la clase GameLoop, que organiza el ciclo del juego de manera ordenada para evitar inconsistencias en las ejecuciones de las interacciones de los jugadores y los objetos garantizando siempre un orden especifico donde cada cosa sucede en el juego.'
+        title: 'Game Flow Control',
+        challenge: 'Coordinating player actions and their interaction with the map, ensuring synchronized updates of the game state.',
+        solution: 'The GameLoop class was developed, organizing the game cycle in an orderly manner to prevent inconsistencies in the execution of player and object interactions, ensuring a specific order where each event in the game happens.'
     },
     {
-        title: 'Envio del estado del juego',
-        challenge: 'Comunicar el estado del juego y de todos los jugadores a cada jugador.',
-        solution: 'Se implementó la estructura de datos GameStateMessage, contiene toda la informacion de estado actual del juego, tanto de jugadores como de eventos del juego, de esta manera toda la comunicacion del juego que envia el sevidor a los jugadores esta compactada en esta estructura.'
+        title: 'Sending Game State',
+        challenge: 'Communicating the game state and all player statuses to each player.',
+        solution: 'The GameStateMessage data structure was implemented, which contains all the current game state information, including player statuses and game events. This structure compacts all game communication sent by the server to the players.'
     }
 ];
 
@@ -33,22 +35,26 @@ const content = [
         title: 'GameMap',
         content: (
             <ParagraphList content={[
-                "Representa el mapa interactivo del juego y contiene las plataformas, balas activas, posiciones iniciales de los jugadores, límites del mapa e ItemSpawners. Contiene un metodo de actualizacion en el cual cada vez que se lo llama actualiza 1 frame de las los objetos que contiene, por ejemplo si hubiera balas activas, las llamaria a actualizar su posicion o si las plataformas no fueran estaticas tambien las actualizaria.",
-                "Si se produjo alguna colision o estado de inconsistencia (salir de los limites del mapa o que el jugador haya actualizado su posicion para quedar dentro de una plataforma) llamara a la clase correspondiente para solucionarlo."
+                "Represents the interactive game map. Contains platforms, active bullets, players' starting positions, map boundaries, and ItemSpawners. It has an update method that, each time it is called, advances the game by one frame, updating all the objects it contains. For example, if there are active bullets, it will call them to update their position, or if the platforms are not static, it will update them as well.",
+                "If a collision or any state of inconsistency occurs (such as a player going beyond the map boundaries or a player moving and ending up inside a platform, which requires collision resolution), it will call the corresponding class to resolve it."
             ]} />
         )
     },
     {
         title: 'CollisionManager',
         content: (
-            <DescriptionWithImage description='Detecta colisiones entre objetos haciendo uso de una pequeña clase Collider que la contienen todo lo que puede interactuar en el juego (jugadores, balas, plataformas y spawners). Usa modelo AABB. Tiene 2 maneras de determinar la colisiones, colision simple, informa con un " si o no" hubo colision y colision detallada, genera un struct que ademas de lo anterior te informa en donde sucedio la colision.' imageSrc="ruta" />
+            <DescriptionWithImage description='Detects collisions between objects using a small Collider class that contains everything that can interact in the game (players, bullets, platforms, and spawners). It uses the AABB model. It has two ways of determining collisions: simple collision, which reports with a "yes or no" whether a collision occurred, and detailed collision, which generates a struct that, in addition to this, informs where the collision took place.' imageSrc={collisionResult} />
         ),
     },
     {
         title: 'CollisionEventManager',
         content: (
             <TextBody>
-                Resuelve colisiones detectadas por CollisionManager. Corrige posiciones de jugadores si colisionan con plataformas y les informa si están sobre ellas. Gestiona interacciones de balas con jugadores, accionando según el tipo de bala (hay balas que infringen daño y otras que no), y maneja colisiones de balas con plataformas, tambien accionando segun el tipo de bala.
+                Resolves collisions detected by the CollisionManager.
+                It corrects player positions if they collide with platforms and informs them if they are standing on them.
+                It manages bullet interactions with players,
+                taking action depending on the type of bullet (some bullets deal damage, while others do not),
+                and handles bullet collisions with platforms, also taking action based on the bullet type.
             </TextBody>
         )
     },
@@ -57,16 +63,16 @@ const content = [
         content: (
             <>
                 <TextBody>
-                    Marca un orden el la realizacion de acciones del juego, esta clase no realiza ninguna accion, solo indica un orden, llamara a las clases necesarias para ejecutar las acciones.
+                    Defines the order of game actions. This class does not perform any actions itself, it simply dictates the order and calls the necessary classes to execute them.
                 </TextBody>
-                <ItemList title="Oden de acciones: "
+                <ItemList title="Action Order: "
                     titleVariant="inherit" items={[
-                        "Obtiene un accion (Moverse o Disparar) de un jugador y Realiza los pasos para ejecutar la accion.",
-                        "LLama a Atualizar el estado de todos los jugadores, aqui es donde se actualiza el juego 1 frame.",
-                        "LLama a Resolver las Posiciones de los jugadores por si quedaron en un estado invalido por lo anterior (fuera del mapa o colisionando con una plataforma).",
-                        "Agrega las balas disparadas por los jugadores al GameMap para que este las pueda procesar como balas activas.",
-                        "LLama a actualizar el estado del mapa, aqui es donde pasa 1 frame en el mapa y finalmente generar y enviar el mensaje de estado del juego.",
-                        "y por ultimo genera un GameStateMessage para que pueda ser enviado a los jugadores."
+                        "It retrieves an action (Move or Shoot) from a player and performs the steps to execute the action.",
+                        "Calls to update the state of all players, this is where the game updates by one frame.",
+                        "Calls to resolve player positions in case they ended up in an invalid state due to the previous step (such as going outside the map or colliding with a platform).",
+                        "Adds the bullets fired by players to the GameMap so that it can process them as active bullets.",
+                        "Calls to update the map state, this is where one frame is processed on the map, and finally, generates and sends the game state message.",
+                        "Lastly, generates a GameStateMessage so it can be sent to the players."
                     ]} />
             </>
         )
@@ -74,7 +80,7 @@ const content = [
     {
         title: 'GameStateMessage',
         content: (
-            <DescriptionWithImage description='Contiene los datos actualizados del estado del juego, que son enviados a los jugadores.' imageSrc="ruta" />
+            <DescriptionWithImage description='Contiene los datos actualizados del estado del juego, que son enviados a los jugadores.' imageSrc={gameStateMessaage} />
         ),
     },
 
@@ -89,13 +95,11 @@ const GameLoopAndMap = () => {
                 <SubSectionTitle> Overview </SubSectionTitle>
                 <ParagraphList
                     content={[
-                        "GameMap gestiona todos los elementos fundamentales de la partida, desde plataformas y límites del mapa hasta la generación de objetos y el manejo de proyectiles.",
+                        "GameMap manages all the fundamental elements of the game, from platforms and map boundaries to object generation and projectile handling.",
 
-                        "La gestión de colisiones se realiza mediante un sistema dual:",
+                        "Collision management is handled through a dual system: CollisionManager for collision detection using the AABB model, and CollisionEventManager for resolving interactions between different game elements.",
 
-                        "CollisionManager para la detección de colisiones usando el modelo AABB, y CollisionEventManager para resolver estas interacciones entre los diferentes elementos del juego.",
-
-                        "El núcleo de todo el juego se ejecuta a través del GameLoop, que coordina todas las acciones de los jugadores y actualiza el estado del juego en un orden específico, desde la ejecución de acciones individuales hasta la actualización del estado global del mapa, finalizando con la generación y distribución de mensajes de estado a todos los jugadores."
+                        "The core of the entire game runs through the GameLoop, which coordinates all player actions and updates the game's state in a specific order, from executing individual actions to updating the global map state, ending with the generation and distribution of status messages to all players."
                     ]}
                 />
             </StyledBox>

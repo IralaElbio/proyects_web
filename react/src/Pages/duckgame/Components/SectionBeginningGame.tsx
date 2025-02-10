@@ -7,19 +7,19 @@ import { SubSectionTitle, TextBody, StyledBox } from "../DuckGameStyles";
 
 const challengesAndSolutions = [
     {
-        title: 'Sincronización de la Entrada de Jugadores',
-        challenge: 'Sincronización de la entrada de jugadores y el inicio del juego.',
-        solution: 'GameInstance asegura que todos los jugadores estén conectados antes de iniciar el juego, evitando que el juego comience hasta que todos estén listos.'
+        title: 'Player Entry Synchronization',
+        challenge: 'Synchronizing player entry and game start.',
+        solution: 'GameInstance ensures that all players are connected before starting the game, preventing it from beginning until everyone is ready.'
     },
     {
-        title: 'Manejo de Física de Movimiento',
-        challenge: 'Manejar los movimientos de los jugadores en el entorno del juego para que sean fluidos y personalizables.',
-        solution: 'El PhysicsEngine se encarga de calcular los movimientos de los jugadores, simular la fricción y gestionar su interaccion con el suelo. Ademas implementa un struct para hacer que los movimientos sean mas personalizables.'
+        title: 'Handling Movement Physics',
+        challenge: 'Managing player movements within the game environment to ensure smooth and customizable controls.',
+        solution: 'The PhysicsEngine calculates player movement, simulates friction, and manages interactions with the ground. Additionally, it implements a struct to allow more customizable movement.'
     },
     {
-        title: 'Comunicación Eficiente entre Jugador y Servidor',
-        challenge: 'Envio y recepcion de datos eficiente, poder enviar y recibir datos al mismo tiempo.',
-        solution: 'La clase Player gestiona las acciones del jugador mediante hilos dedicados para enviar y recibir datos, asegurando que las interacciones se manejen de manera eficiente sin bloquear el proceso de juego.'
+        title: 'Efficient Player-Server Communication',
+        challenge: 'Efficiently sending and receiving data simultaneously.',
+        solution: 'The Player class handles player actions using dedicated send and receive threads, ensuring interactions are processed efficiently without blocking the game loop.'
     }
 ];
 
@@ -28,7 +28,12 @@ const content = [
         title: 'GameInstance',
         content: (
             <TextBody>
-                Incluye el bucle principal del juego (GameLoop), la clase que administra a los jugadores de la partida (PlayerController) y el motor de físicas (PhysicsEngine) que los jugadores utilizarán al comenzar la partida. Es el "contenedor" (tiene todos los datos y clases) de la partida del juego, una partida del juego se ejecuta dentro de un GameInstance lo que hace que cada partida (si se quiere) pueda tener sus propias reglas de fisicas (modificando la configuracion de PhysicsEngine).
+                It includes the main game loop (GameLoop), the class that manages the players
+                in the match (PlayerController), and the physics engine (PhysicsEngine)
+                that players will use when the match begins. It serves as the 'container'
+                (holding all the data and classes) for the game match, with each match running within a GameInstance,
+                allowing for the possibility of having custom physics rules
+                (by modifying the PhysicsEngine configuration) for each game if desired.
             </TextBody>
         )
     },
@@ -36,28 +41,21 @@ const content = [
         title: 'Player',
         content: (
             <TextBody>
-                Clase encargada de gestionar las acciones de los jugadores (Disparar y moverse), con métodos específicos para realizar dichas acciones. Contiene toda la informacion del jugador en un momento especifico del juego (esta disparando o no, esta corriendo o no, velocidad en algun eje, etc.), para que las demas clases puedan usar dicha informacion para modificar su estado.
+                This class is responsible for managing the player's actions (shooting and movement),
+                with specific methods to perform these actions.
+                It holds all the player's information at a given moment in the game
+                (whether they are shooting or not, whether they are running or not, speed on any axis, etc.),
+                so other classes can use this information to modify their state.
             </TextBody>
         ),
     },
     {
         title: 'PhysicsEngine',
         content: (
-            <>
-                <DescriptionWithImage
-                    description="Clase encargada de realizar los movimientos del jugador, pre-configurada con los datos de los valores de las físicas en un struct (estructura de datos llamada PhysicsConfig)."
-                    imageSrc={physicsConfigImage}
-                />
-
-                <DescriptionWithImage
-                    description="Proporciona un struct (PhysicsState) personal para cada Player que contiene los datos necesarios para entender el estado del movimiento del jugador en cada momento."
-                    imageSrc={physicsConfigImage}
-                />
-
-                <DescriptionWithImage
-                    description="Gracias a estas dos estructuras de datos es que puede simular las físicas del juego para los jugadores."
-                />
-            </>
+            <DescriptionWithImage
+                description="This class is responsible for handling the player's movements, pre-configured with physics values stored in a struct (PhysicsConfig). It provides a custom struct (PhysicsState) for each player, containing the necessary data to understand the player's movement state at any given moment. Thanks to these two data structures, it can simulate the game's physics for the players."
+                imageSrc={physicsConfigImage}
+            />
         ),
     },
 ];
@@ -70,9 +68,9 @@ const BeginningGameSect = () => {
                 <SubSectionTitle> Overview </SubSectionTitle>
                 <ParagraphList
                     content={[
-                        " El sistema implementa un servidor de juego multijugador donde cada partida es manejada por una GameInstance, que actúa como el núcleo central coordinando todos los aspectos del juego. Este componente gestiona la sincronización de los jugadores y controla el inicio de las partidas mediante un sistema de múltiples hilos que manejan el bucle principal del juego y la comunicación con cada jugador.",
-                        "El sistema incorpora un motor de físicas personalizado que gobierna los movimientos de los jugadores y sus interacciones con el entorno.",
-                        "Cada jugador opera con sus propios hilos de envío y recepción de datos, mientras que un sistema de estados físicos y configuraciones preestablecidas garantiza la consistencia del movimiento y las colisiones durante la partida.",
+                        "The system implements a multiplayer game server where each match is managed by a GameInstance, acting as the central core that coordinates all aspects of the game. This component handles player synchronization and controls match initialization through a multithreaded system that manages the main game loop and communication with each player.",
+                        "The system includes a custom physics engine that governs player movements and interactions with the environment.",
+                        "Each player operates with dedicated send and receive threads, while a physics state system and predefined configurations ensure consistent movement and collisions throughout the match.",
                     ]}
                 />
             </StyledBox>

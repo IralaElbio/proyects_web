@@ -1,4 +1,3 @@
-import React from 'react'
 import BeginningGameSect from './SectionBeginningGame'
 import GameLoopAndMap from './SectionGameLoopMap'
 import Weapons from './SectionWeapons'

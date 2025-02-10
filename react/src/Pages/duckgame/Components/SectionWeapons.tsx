@@ -5,36 +5,39 @@ import ItemList from './CItemList';
 import DescriptionWithImage from "./CDescripWImage";
 import ParagraphList from './CParagraphList';
 import { SubSectionTitle, StyledBox } from '../DuckGameStyles';
+import iActionableItem from "../Assets/IActionableItem.jpeg"
+import shootingStrategy from "../Assets/ShootingStrategy.jpeg"
+import bulletType from "../Assets/BulletType.jpeg"
 
 const challengesAndSolutions = [
     {
-        title: 'Armas con Diseño modular y extensible',
-        challenge: 'Crear un sistema que permita agregar fácilmente nuevos tipos de armas y estrategias de disparo sin afectar la funcionalidad existente.',
-        solution: 'Se implementa la interfaz ActionableItem y se utiliza el patrón de estrategia (ShootingStrategy) para encapsular comportamientos específicos de disparo. Esto permite la integración de nuevos tipos de armas sin modificar las clases existentes.'
+        title: 'Modular and Extensible Weapon Design',
+        challenge: 'Create a system that allows for easy addition of new weapon types and shooting strategies without affecting existing functionality.',
+        solution: 'The IActionableItem interface is implemented and the Strategy pattern (ShootingStrategy) is used to encapsulate specific shooting behaviors. This allows the integration of new weapon types without modifying existing classes.'
     },
     {
-        title: 'Gestión de comportamientos únicos de las balas',
-        challenge: 'Asegurar que cada tipo de bala (normal, explosiva, elástica y especial) tenga propiedades y efectos únicos, manteniendo un código organizado.',
-        solution: 'Se definie una jerarquía de clases para las balas, con una clase base Bullet y subclases específicas que encapsulan comportamientos únicos. Esto simplifica la gestión y reutilización del código.'
+        title: 'Management of Unique Bullet Behaviors',
+        challenge: 'Ensure that each bullet type (normal, explosive, bouncy, and special) has unique properties and effects while maintaining organized code.',
+        solution: 'A class hierarchy for bullets is defined, with a base Bullet class and specific subclasses that encapsulate unique behaviors. This simplifies code management and reuse.'
     },
     {
-        title: 'Creación centralizada de armas',
-        challenge: 'Evitar la duplicación de lógica al generar armas con características específicas.',
-        solution: 'Se diseñó la clase WeaponFactory, responsable de construir las armas y asignarles la estrategia de disparo correspondiente. Esto centraliza la lógica y facilita la creación de nuevas armas.'
+        title: 'Centralized Weapon Creation',
+        challenge: 'Avoid logic duplication when creating weapons with specific characteristics.',
+        solution: 'The WeaponFactory class was designed to be responsible for constructing weapons and assigning the corresponding shooting strategy. This centralizes the logic and makes it easier to create new weapons.'
     },
     {
-        title: 'Simulación de acciones mantenidas (Disparos continuos)',
-        challenge: 'Gestionar el estado de las armas para soportar acciones como disparos automáticos o mantenidos.',
-        solution: 'Se implementó un método de actualización continua en ActionableItem que evalúa el estado del arma y ajusta su comportamiento dinámicamente según su tipo.'
+        title: 'Simulation of Sustained Actions (Continuous Shooting)',
+        challenge: 'Manage the weapon state to support actions like automatic, semi-automatic or sustained shooting.',
+        solution: 'A continuous update method was implemented in IActionableItem, which evaluates the weapon’s state and adjusts its behavior dynamically based on its type.'
     },
 ];
 
 
 const bulletTypes = [
-    "Normal: Sigue una trayectoria recta, causa daño al impactar con jugadores y desaparece al colisionar con plataformas.",
-    "Explosive: Viaja en parábola, explota en un área causando daño a jugadores cercanos, y pierde velocidad al colisionar lateralmente con plataformas.",
-    "Special: Similar a la explosiva, pero genera una cáscara de banana que empuja a los jugadores al impactar. Al colisionar lateralmente con plataformas, pierde velocidad y cae.",
-    "Elastic: Rebota al colisionar con plataformas y causa daño al impactar con jugadores."
+    "Normal: Follows a straight trajectory, deals damage when hitting players, and disappears upon colliding with platforms or reaching a certain range of the weapon.",
+    "Explosive: Travels in a parabola, explodes in an area causing damage to nearby players, and does not disappear until it explodes.",
+    "Special: Moves like the explosive bullet, but this one pushes the player it touches. It does not disappear until a player collides with it.",
+    "Elastic: Bounces when colliding with platforms and deals damage when hitting players, disappearing after a certain number of bounces."
 ];
 
 
@@ -42,32 +45,32 @@ const content = [
     {
         title: 'IActionableItem',
         content: (
-            <DescriptionWithImage description='Esta interfaz es implementada por todas las armas del juego
-            y define los métodos necesarios para gestionar sus acciones. 
-            Incluye funcionalidades como: acción al presionar la tecla, 
-            acción al soltar la tecla y actualización del estado del arma.
-            Permite que cada arma tenga comportamientos únicos dependiendo de su tipo.
-            PlayerWeapon y ThroweableItem son las clases que implementan esta interfaz.
-            ThroweableItem abarca objetos que son lanzables, mientras que 
-            PlayerWeapon maneja la lógica más compleja asociada a las armas de los jugadores.' imageSrc='ruta' />
+            <DescriptionWithImage description='This interface is implemented by all 
+            the weapons in the game and defines the methods necessary to manage their actions. 
+            It includes functionalities such as: action on key press, 
+            action on key release, and weapon state update. 
+            It allows each weapon to have unique behaviors depending on its type. 
+            PlayerWeapon and ThrowableItem are the classes that implement this interface. 
+            ThrowableItem covers throwable objects, while 
+            PlayerWeapon handles the more complex logic associated with player weapons.' imageSrc={iActionableItem} />
         ),
     },
     {
         title: 'ShootingStrategy',
         content: (
-            <DescriptionWithImage description='Clase que modela una estrategia de disparo utilizada por PlayerWeapon.
-            Actúa como clase base para implementar comportamientos específicos de disparo.
-            Usa un contexto (struct ShootingContext) que contiene la información necesaria para disparar.
-            Las estrategias derivadas pueden modificar este contexto para adaptarlo a su estilo de disparo particular.
-            Cada estrategia puede estar asociada a un "tipo de bala", lo que permite comportamientos únicos.' imageSrc='ruta' />
+            <DescriptionWithImage description='Class that models a shooting strategy used by PlayerWeapon. 
+            It acts as a base class for implementing specific shooting behaviors. 
+            It uses a context (ShootingContext struct) that contains the necessary information to shoot. 
+            Derived strategies can modify this context to adapt it to their particular shooting style. 
+            Each strategy can be associated with a bullet type, allowing for unique behaviors.' imageSrc={shootingStrategy} />
         ),
     },
     {
-        title: 'Tipos de Balas',
+        title: 'Types of Bullets',
         content: (
             <Stack>
-                <ItemList title="Existen cuatro tipos de balas" items={bulletTypes} titleVariant='h6' />
-                <DescriptionWithImage description='Diagrama UML' imageSrc='ruta' />
+                <ItemList title="There are four types of bullets:" items={bulletTypes} titleVariant='h6' />
+                <DescriptionWithImage description='' imageSrc={bulletType} />
             </Stack>
         ),
     },
@@ -79,15 +82,15 @@ function Weapons() {
             <StyledBox>
                 <SubSectionTitle> Overview </SubSectionTitle>
                 <ParagraphList content={[
-                    "Para las armas se implementa un diseño modular, utilizando la interfaz IActionableItem como base para todas las interacciones.",
+                    "A modular design is implemented for weapons, using the IActionableItem interface as the base for all interactions.",
 
-                    "La implementación se divide en dos ramas principales: ThrowableItem para objetos arrojables como granadas, y PlayerWeapon para armas más complejas que utilizan estrategias de disparo personalizadas.",
+                    "The implementation is divided into two main branches: ThrowableItem for throwable objects like grenades, and PlayerWeapon for more complex weapons that use custom shooting strategies.",
 
-                    "El comportamiento de las armas se define a través del patrón Strategy llamado ShootingStrategy para poder personalizar cada tipo de disparo, ademas se usa una clase abstracta Bullet para lograr diferentes tipos de proyectiles.",
+                    "Weapon behavior is defined through the Strategy pattern, called ShootingStrategy, to customize each type of shot. Additionally, an abstract Bullet class is used to create different types of projectiles:",
 
-                    "balas normales de trayectoria recta, explosivas con daño en área, especiales que afectan el movimiento del jugador, y elásticas que rebotan en las superficies.",
+                    "Straight trajectory bullets, Explosive bullets with area damage, Special bullets that affect player movement, and Bouncy bullets that ricochet off surfaces.",
 
-                    "La creación de estas armas está centralizada en WeaponFactory, que gestiona la instanciación de cada tipo específico según su estrategia de disparo."
+                    "The creation of these weapons is centralized in WeaponFactory, which manages the instantiation of each specific type based on its shooting strategy."
                 ]} />
             </StyledBox>
 

@@ -3,6 +3,8 @@ import { SpacedStack, FlexBoxRow, FlexBoxRowContent, SubSectionTitle, StyledBox 
 import ChallengesAndSolutions from './CompChallenges';
 import AccordionWNode from './CAccordion';
 import ParagraphList from './CParagraphList';
+import DescriptionWithImage from './CDescripWImage';
+import lobbyUML from "../Assets/LobbyUML.jpeg"
 
 const challengesAndSolutions = [
     {
@@ -48,8 +50,8 @@ const content = [{
                             ]}
                         />
                     </FlexBoxRowContent>
-                    <FlexBoxRowContent width={1500} height={300} bgcolor="black" display="flex" justifyContent="center" alignItems="center">
-                        <Typography>Diagrama UML aquí</Typography>
+                    <FlexBoxRowContent>
+                        <DescriptionWithImage description='' imageSrc={lobbyUML} />
                     </FlexBoxRowContent>
                 </FlexBoxRow>
             </StyledBox>

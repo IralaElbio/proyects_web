@@ -16,8 +16,8 @@ const DescriptionWithImage: React.FC<DescriptionWithImageProps> = ({ description
                 </TextBody>
             ))}
             <Box
-                maxWidth={500}
-                maxHeight={500}
+                maxWidth={600}
+                maxHeight={600}
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
