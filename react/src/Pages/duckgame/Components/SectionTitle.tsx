@@ -14,7 +14,7 @@ const HeroContainer = styled(motion.div)`
   background-image: url(${backgroundImage});
   background-size: cover;
   background-position: center;
-  
+
   text-align: center;
   color: white;
   z-index: 1;
@@ -27,7 +27,11 @@ const HeroContainer = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.8) 20%,
+      rgba(0, 0, 0, 0.2) 80%
+    );
     z-index: -1;
   }
 `;
@@ -59,7 +63,7 @@ const ScrollIndicator = styled(motion.div)`
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  
+
   &::before {
     content: "";
     width: 8px;
@@ -70,7 +74,8 @@ const ScrollIndicator = styled(motion.div)`
   }
 
   @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
@@ -89,7 +94,6 @@ const HeroSection = () => {
       const fadeOutPoint = 1500; // Ajusta para que la transición sea más suave
       setOpacity(Math.max(1 - scrollY / fadeOutPoint, 0));
       setScale(Math.max(1 - scrollY / (fadeOutPoint * 1.5), 0.9));
-
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -97,10 +101,15 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <HeroContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} style={{ opacity }}>
+    <HeroContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      style={{ opacity }}
+    >
       <motion.div style={{ scale }}>
         <Title variant="h2">DuckGame Project - Back End</Title>
-        <Subtitle variant="h4">Multiplayer Game Engine Development</Subtitle>
+        <Subtitle variant="h4">Action Game Development</Subtitle>
       </motion.div>
       <ScrollIndicator />
     </HeroContainer>
