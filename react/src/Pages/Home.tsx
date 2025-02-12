@@ -8,7 +8,7 @@ import {
   StyledCardTitle,
   StyledCardDescription,
   StyledButton,
-} from "../Styles/HomeStyles";
+} from "../styles/HomeStyles";
 import proyectImage from "../assets/image_proyect.jpg";
 
 function Home() {
