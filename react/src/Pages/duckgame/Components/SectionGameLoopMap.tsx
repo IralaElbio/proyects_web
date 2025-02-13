@@ -6,7 +6,6 @@ import ItemList from "./CItemList";
 import { StyledBox, SubSectionTitle, TextBody } from "../DuckGameStyles";
 import collisionResult from "../Assets/CollisionResult.jpeg";
 import gameStateMessaage from "../Assets/GameStateMessage.png";
-import playerData from "../Assets/PlayerData.png";
 
 const challengesAndSolutions = [
   {

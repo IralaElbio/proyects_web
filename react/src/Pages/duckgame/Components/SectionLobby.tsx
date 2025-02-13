@@ -1,6 +1,5 @@
-import { Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import {
-  SpacedStack,
   FlexBoxRow,
   FlexBoxRowContent,
   SubSectionTitle,
@@ -47,7 +46,7 @@ const content = [
   {
     title: "Lobby",
     content: (
-      <SpacedStack>
+      <Stack spacing={2}>
         <StyledBox>
           <FlexBoxRow>
             <FlexBoxRowContent>
@@ -67,7 +66,7 @@ const content = [
           </FlexBoxRow>
         </StyledBox>
         <ChallengesAndSolutions data={challengesAndSolutions} />
-      </SpacedStack>
+      </Stack>
     ),
   },
 ];

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Typography, Box } from "@mui/material";
+import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import backgroundImage from "../Assets/duckgame.jpg";

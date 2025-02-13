@@ -14,10 +14,9 @@ const ImageContainer = styled(Box)(() => ({
   cursor: "pointer",
   borderRadius: "0px",
   overflow: "hidden",
-  transition: "box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out",
+  transition: "border-radius 0.2s ease-in-out",
   "&:hover": {
     borderRadius: "16px",
-    boxShadow: "4px 4px 4px rgb(116, 114, 114)",
   },
 }));
 

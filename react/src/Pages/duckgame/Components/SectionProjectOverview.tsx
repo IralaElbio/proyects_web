@@ -3,7 +3,6 @@ import { Stack, Box, Chip } from "@mui/material";
 import {
   FlexBoxRow,
   FlexBoxRowContent,
-  StyledStackContainer,
   SubSectionTitle,
   TextBody,
 } from "../DuckGameStyles";
@@ -38,6 +37,11 @@ const ProjectOverviewVideo = styled(Box)(() => ({
   display: "flex",
   marginBottom: "10px",
   boxShadow: "1px 1px 8px rgb(141, 143, 6)",
+}));
+
+const StyledStackContainer = styled(Stack)(({ theme }) => ({
+  padding: theme.spacing(3),
+  marginBottom: theme.spacing(4),
 }));
 
 const technologies = [
