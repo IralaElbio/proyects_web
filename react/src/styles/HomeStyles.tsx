@@ -31,7 +31,7 @@ export const Title = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const StyledCard = styled(Card)(({ theme }) => ({
+export const StyledCard = styled(Card)(() => ({
   background: "rgba(255, 255, 255, 0.05)",
   backdropFilter: "blur(10px)",
   borderRadius: "20px",
@@ -47,7 +47,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-export const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
+export const StyledCardMedia = styled(CardMedia)(() => ({
   height: 200,
   maxWidth: 345,
   borderRadius: "15px 15px 0 0",
@@ -61,7 +61,7 @@ export const StyledCardTitle = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-export const StyledCardDescription = styled(Typography)(({ theme }) => ({
+export const StyledCardDescription = styled(Typography)(() => ({
   color: "rgba(255, 255, 255, 0.7)",
   lineHeight: 1.6,
   fontSize: "1rem",

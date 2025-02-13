@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -68,5 +67,3 @@ function MainBarr() {
 }
 
 export default MainBarr;
-
-
