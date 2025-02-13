@@ -1,4 +1,3 @@
-import React from "react";
 import { Stack, CardContent, CardActions } from "@mui/material";
 import {
   Container,
@@ -9,7 +8,9 @@ import {
   StyledCardDescription,
   StyledButton,
 } from "../styles/HomeStyles";
-import proyectImage from "../assets/image_proyect.jpg";
+import duckGameImg from "../assets/DuckGame_img.png";
+import workInProgres from "../assets/WorkInProgress.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -19,34 +20,33 @@ function Home() {
       </Title>
       <Stack spacing={1}>
         <StyledCard>
-          <StyledCardMedia image={proyectImage} />
+          <StyledCardMedia image={duckGameImg} />
           <CardContent>
             <StyledCardTitle gutterBottom variant="h5">
-              Project 1
+              Duck Game - Proyect
             </StyledCardTitle>
             <StyledCardDescription variant="body2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-              ea laborum dolore sapiente fugiat beatae, soluta, libero
-              recusandae quo repellat culpa. Perferendis minima laboriosam atque
-              dolores.
+              In this project, I worked on the back end to develop a copy of the
+              game DuckGame from scratch, using only C++ and sockets, as part of
+              a university project. My task was to create the server to
+              synchronize the players and manage the game's physics and logic.
             </StyledCardDescription>
           </CardContent>
           <CardActions>
-            <StyledButton size="small">Learn More</StyledButton>
+            <Link to="/duckgame" style={{ textDecoration: "none" }}>
+              <StyledButton size="small">Learn More</StyledButton>
+            </Link>
           </CardActions>
         </StyledCard>
 
         <StyledCard>
-          <StyledCardMedia image={proyectImage} />
+          <StyledCardMedia image={workInProgres} />
           <CardContent>
             <StyledCardTitle gutterBottom variant="h5">
               Project 2
             </StyledCardTitle>
             <StyledCardDescription variant="body2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-              ea laborum dolore sapiente fugiat beatae, soluta, libero
-              recusandae quo repellat culpa. Perferendis minima laboriosam atque
-              dolores.
+              Work in progress... adding more of my projects soon.
             </StyledCardDescription>
           </CardContent>
           <CardActions>

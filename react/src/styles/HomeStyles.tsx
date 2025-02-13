@@ -44,9 +44,6 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   "&:hover": {
     transform: "translateY(-8px)",
     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
-    "& .MuiCardMedia-root": {
-      transform: "scale(1.05)",
-    },
   },
 }));
 
@@ -54,6 +51,7 @@ export const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   height: 200,
   maxWidth: 345,
   borderRadius: "15px 15px 0 0",
+  objectFit: "fill",
 }));
 
 export const StyledCardTitle = styled(Typography)(({ theme }) => ({
