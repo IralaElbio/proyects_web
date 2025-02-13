@@ -7,7 +7,7 @@ import {
   StyledCardTitle,
   StyledCardDescription,
   StyledButton,
-} from "../styles/HomeStyles";
+} from "../Styles/HomeStyles";
 import duckGameImg from "../assets/DuckGame_img.png";
 import workInProgres from "../assets/WorkInProgress.png";
 import { Link } from "react-router-dom";
