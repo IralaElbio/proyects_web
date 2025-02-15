@@ -74,6 +74,7 @@ const BeginningGameSect = () => {
       <StyledBox>
         <FlexBoxRow>
           <FlexBoxRowContent>
+            <SubSectionTitle> Overview </SubSectionTitle>
             <ParagraphList
               content={[
                 "The system implements a multiplayer game server where each match is managed by a GameInstance, acting as the central core that coordinates all aspects of the game. This component handles player synchronization and controls match initialization through a multithreaded system that manages the main game loop and communication with each player.",
@@ -86,7 +87,6 @@ const BeginningGameSect = () => {
             <DescriptionWithImage description="" imageSrc={gameUML} />
           </FlexBoxRowContent>
         </FlexBoxRow>
-        <SubSectionTitle> Overview </SubSectionTitle>
       </StyledBox>
 
       <ChallengesAndSolutions data={challengesAndSolutions} />

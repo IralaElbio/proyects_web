@@ -18,7 +18,7 @@ function Home() {
       <Stack spacing={1}>
         <ProjectCard
           image={duckGameImg}
-          title="Duck Game - Project"
+          title="Duck Game"
           description="In this project, I worked on the back end to develop a copy of the game DuckGame from scratch, using only C++ and sockets, as part of a university project. My task was to create the server to synchronize the players and manage the game's physics and logic."
           link="/duckgame"
         />
@@ -40,8 +40,8 @@ function Home() {
 
         <ProjectCard
           image={workInProgres}
-          title="In progress"
-          description=""
+          title="Weapon Marketplace Simulator"
+          description="In this project, I developed a client-server system that simulates a weapons marketplace for the Duck Game. The server manages a virtual armory where players can purchase and equip weapons and ammunition, with all transactions logged. The system uses a custom binary protocol for client-server communication, supporting message types for purchase orders, equipment updates, and ammunition counts. Players interact through a command-line interface, equipping primary and secondary weapons or toggling knife equipment. The implementation features custom socket encapsulation in C++."
           isInProgress={true}
         />
       </Stack>
