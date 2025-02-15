@@ -23,7 +23,7 @@ export const Title = styled(Typography)(({ theme }) => ({
     left: 0,
     width: "60px",
     height: "4px",
-    background: theme.palette.primary.main,
+    background: "rgb(0, 180, 216)",
     borderRadius: "2px",
   },
   [theme.breakpoints.down("sm")]: {
@@ -42,7 +42,7 @@ export const StyledCard = styled(Card)(() => ({
   display: "flex",
   flexDirection: "column",
   "&:hover": {
-    transform: "translateY(-8px)",
+    transform: "translateY(-5px)",
     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
   },
 }));
@@ -76,7 +76,12 @@ export const StyledButton = styled(Button)(({ theme }) => ({
   borderRadius: "10px",
   marginTop: "auto",
   "&:hover": {
-    background: "linear-gradient(45deg, #1976D2 30%, #00B4D8 90%)",
+    background: "linear-gradient(45deg,#1976d2 30%,rgb(0, 180, 216) 90%)",
     transform: "scale(1.05)",
+  },
+  "&.Mui-disabled": {
+    background: "linear-gradient(45deg, #555 30%, #444 90%)",
+    color: "#aaa",
+    cursor: "not-allowed",
   },
 }));

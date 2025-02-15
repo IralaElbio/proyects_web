@@ -1,16 +1,11 @@
-import { Stack, CardContent, CardActions } from "@mui/material";
+import { Stack } from "@mui/material";
 import {
   Container,
   Title,
-  StyledCard,
-  StyledCardMedia,
-  StyledCardTitle,
-  StyledCardDescription,
-  StyledButton,
 } from "../Styles/HomeStyles";
 import duckGameImg from "../assets/DuckGame_img.png";
 import workInProgres from "../assets/WorkInProgress.png";
-import { Link } from "react-router-dom";
+import ProjectCard from "../Components/ProjectCard";
 
 function Home() {
   return (
@@ -19,40 +14,27 @@ function Home() {
         Projects
       </Title>
       <Stack spacing={1}>
-        <StyledCard>
-          <StyledCardMedia image={duckGameImg} />
-          <CardContent>
-            <StyledCardTitle gutterBottom variant="h5">
-              Duck Game - Proyect
-            </StyledCardTitle>
-            <StyledCardDescription variant="body2">
-              In this project, I worked on the back end to develop a copy of the
-              game DuckGame from scratch, using only C++ and sockets, as part of
-              a university project. My task was to create the server to
-              synchronize the players and manage the game's physics and logic.
-            </StyledCardDescription>
-          </CardContent>
-          <CardActions>
-            <Link to="/duckgame" style={{ textDecoration: "none" }}>
-              <StyledButton size="small">Learn More</StyledButton>
-            </Link>
-          </CardActions>
-        </StyledCard>
+        <ProjectCard
+          image={duckGameImg}
+          title="Duck Game - Project"
+          description="In this project, I worked on the back end to develop a copy of the game DuckGame from scratch, using only C++ and sockets, as part of a university project. My task was to create the server to synchronize the players and manage the game's physics and logic."
+          link="/duckgame"
+        />
 
-        <StyledCard>
-          <StyledCardMedia image={workInProgres} />
-          <CardContent>
-            <StyledCardTitle gutterBottom variant="h5">
-              Project 2
-            </StyledCardTitle>
-            <StyledCardDescription variant="body2">
-              Work in progress... adding more of my projects soon.
-            </StyledCardDescription>
-          </CardContent>
-          <CardActions>
-            <StyledButton size="small">Learn More</StyledButton>
-          </CardActions>
-        </StyledCard>
+        <ProjectCard
+          image={workInProgres}
+          title="VPN Proxy Classification - Kaggle Competition"
+          description="In this Kaggle competition, I trained three machine learning models to classify IP addresses as VPN or Proxy using crowdsourced data from the Crowdsec cybersecurity engine. I experimented with a Perceptron model as a baseline, followed by Random Forest and XGBoost models. The XGBoost model achieved the highest score of 0.73, securing 9th place in the competition.
+          I used Google Notebooks, pandas, Matplotlib, and Plotly for data analysis. The dataset was a massive 8 GB CSV containing approximately 60 million records, requiring efficient data processing and visualization techniques."
+          isInProgress={true}
+        />
+
+        <ProjectCard
+          image={workInProgres}
+          title="Multi-threaded Game Server Simulator"
+          description="In this project, I built a multiplayer game simulator where players use console commands to interact with collectable boxes. I created both the server that manages the game state and the client program that players use to connect and send commands. The server handles multiple players simultaneously, keeping track of item boxes that respawn after being collected and notifying all players about game events. The implementation uses C++ with POSIX sockets and a designed protocol for network communication, multiple threads to handle concurrent player connections efficiently. Each client connection is managed by dedicated threads for sending and receiving data, while thread-safe queues ensure reliable communication between game components."
+          isInProgress={true}
+        />
       </Stack>
     </Container>
   );
