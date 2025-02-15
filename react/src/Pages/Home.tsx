@@ -6,6 +6,8 @@ import {
 import duckGameImg from "../assets/DuckGame_img.png";
 import workInProgres from "../assets/WorkInProgress.png";
 import ProjectCard from "../Components/ProjectCard";
+import projectBoxSimulator from "../Assets/BoxSimulator_img.jpeg";
+import projectKaggle from "../Assets/KaggleComp_img.jpeg";
 
 function Home() {
   return (
@@ -22,7 +24,7 @@ function Home() {
         />
 
         <ProjectCard
-          image={workInProgres}
+          image={projectKaggle}
           title="VPN Proxy Classification - Kaggle Competition"
           description="In this Kaggle competition, I trained three machine learning models to classify IP addresses as VPN or Proxy using crowdsourced data from the Crowdsec cybersecurity engine. I experimented with a Perceptron model as a baseline, followed by Random Forest and XGBoost models. The XGBoost model achieved the highest score of 0.73, securing 9th place in the competition.
           I used Google Notebooks, pandas, Matplotlib, and Plotly for data analysis. The dataset was a massive 8 GB CSV containing approximately 60 million records, requiring efficient data processing and visualization techniques."
@@ -30,9 +32,16 @@ function Home() {
         />
 
         <ProjectCard
-          image={workInProgres}
+          image={projectBoxSimulator}
           title="Multi-threaded Game Server Simulator"
           description="In this project, I built a multiplayer game simulator where players use console commands to interact with collectable boxes. I created both the server that manages the game state and the client program that players use to connect and send commands. The server handles multiple players simultaneously, keeping track of item boxes that respawn after being collected and notifying all players about game events. The implementation uses C++ with POSIX sockets and a designed protocol for network communication, multiple threads to handle concurrent player connections efficiently. Each client connection is managed by dedicated threads for sending and receiving data, while thread-safe queues ensure reliable communication between game components."
+          isInProgress={true}
+        />
+
+        <ProjectCard
+          image={workInProgres}
+          title="In progress"
+          description=""
           isInProgress={true}
         />
       </Stack>
