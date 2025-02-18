@@ -41,15 +41,11 @@ export const StyledCard = styled(Card)(() => ({
   height: "100%",
   display: "flex",
   flexDirection: "column",
-  "&:hover": {
-    transform: "translateY(-5px)",
-    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
-  },
 }));
 
 export const StyledCardMedia = styled(CardMedia)(() => ({
-  height: 200,
-  maxWidth: 345,
+  height: 250,
+  maxWidth: 400,
   borderRadius: "15px 15px 0 0",
   objectFit: "fill",
 }));
