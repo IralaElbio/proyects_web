@@ -6,7 +6,7 @@ import DuckGame from "./Pages/duckgame/DuckGame";
 function App() {
   return (
     <div>
-      <Router>
+      <Router basename="/proyects_web">
         <MainBarr />
         <Routes>
           <Route path="/" element={<Home />} />

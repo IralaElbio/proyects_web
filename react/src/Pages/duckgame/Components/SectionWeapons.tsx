@@ -58,14 +58,8 @@ const content = [
     title: "IActionableItem",
     content: (
       <DescriptionWithImage
-        description="This interface is implemented by all 
-            the weapons in the game and defines the methods necessary to manage their actions. 
-            It includes functionalities such as: action on key press, 
-            action on key release, and weapon state update. 
-            It allows each weapon to have unique behaviors depending on its type. 
-            PlayerWeapon and ThrowableItem are the classes that implement this interface. 
-            ThrowableItem covers throwable objects, while 
-            PlayerWeapon handles the more complex logic associated with player weapons."
+        description="This interface is implemented by all the weapons in the game and defines the methods necessary to manage their actions. It includes functionalities such as: action on key press, action on key release, and weapon state update. It allows each weapon to have unique behaviors depending on its type. 
+            PlayerWeapon and ThrowableItem are the classes that implement this interface. ThrowableItem covers throwable objects, while PlayerWeapon handles the more complex logic associated with player weapons."
         imageSrc={iActionableItem}
       />
     ),
@@ -75,10 +69,7 @@ const content = [
     content: (
       <DescriptionWithImage
         description="Class that models a shooting strategy used by PlayerWeapon. 
-            It acts as a base class for implementing specific shooting behaviors. 
-            It uses a context (ShootingContext struct) that contains the necessary information to shoot. 
-            Derived strategies can modify this context to adapt it to their particular shooting style. 
-            Each strategy can be associated with a bullet type, allowing for unique behaviors."
+            It acts as a base class for implementing specific shooting behaviors. It uses a context (ShootingContext struct) that contains the necessary information to shoot. Derived strategies can modify this context to adapt it to their particular shooting style. Each strategy can be associated with a bullet type, allowing for unique behaviors."
         imageSrc={shootingStrategy}
       />
     ),
